@@ -12,30 +12,30 @@
 
 ActiveRecord::Schema.define(version: 2018_08_06_135139) do
 
-  create_table "animes", force: :cascade do |t|
+  create_table "animes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.integer "manga_id"
+    t.bigint "manga_id"
     t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["manga_id"], name: "index_animes_on_manga_id"
   end
 
-  create_table "authors", force: :cascade do |t|
+  create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "chapters", force: :cascade do |t|
-    t.integer "manga_id"
+  create_table "chapters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "manga_id"
     t.text "images"
     t.text "content"
     t.datetime "created_at", null: false
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 2018_08_06_135139) do
     t.index ["manga_id"], name: "index_chapters_on_manga_id"
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "manga_id"
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "manga_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -53,48 +53,48 @@ ActiveRecord::Schema.define(version: 2018_08_06_135139) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "composes", force: :cascade do |t|
-    t.integer "author_id"
-    t.integer "manga_id"
+  create_table "composes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "author_id"
+    t.bigint "manga_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_composes_on_author_id"
     t.index ["manga_id"], name: "index_composes_on_manga_id"
   end
 
-  create_table "follows", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "manga_id"
+  create_table "follows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "manga_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["manga_id"], name: "index_follows_on_manga_id"
     t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "manga_id"
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "manga_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["manga_id"], name: "index_likes_on_manga_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "mangas", force: :cascade do |t|
+  create_table "mangas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.text "detail"
     t.integer "number_of_read"
     t.integer "status"
     t.float "average_rate"
-    t.integer "category_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_mangas_on_category_id"
   end
 
-  create_table "rates", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "manga_id"
+  create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "manga_id"
     t.integer "number_of_rates"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2018_08_06_135139) do
     t.index ["user_id"], name: "index_rates_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "phone"
     t.integer "gender"
