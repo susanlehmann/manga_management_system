@@ -95,6 +95,10 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     dry-configurable (0.7.0)
       concurrent-ruby (~> 1.0)
     dry-container (0.6.0)
@@ -124,6 +128,8 @@ GEM
       dry-types (~> 0.13.1)
     erubi (1.7.1)
     execjs (2.7.0)
+    faraday (0.12.2)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
     ffi (1.9.25-x64-mingw32)
     flex-slider-rails (2.7.0)
@@ -131,6 +137,7 @@ GEM
       railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    hashie (3.5.7)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -145,6 +152,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    jwt (1.5.6)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -165,6 +173,8 @@ GEM
     msgpack (1.2.4)
     msgpack (1.2.4-x64-mingw32)
     multi_json (1.13.1)
+    multi_xml (0.6.0)
+    multipart-post (2.0.0)
     mysql2 (0.5.2)
     mysql2 (0.5.2-x64-mingw32)
     nio4r (2.3.1)
@@ -172,6 +182,24 @@ GEM
       mini_portile2 (~> 2.3.0)
     nokogiri (1.8.4-x64-mingw32)
       mini_portile2 (~> 2.3.0)
+    oauth2 (1.4.0)
+      faraday (>= 0.8, < 0.13)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.8.1)
+      hashie (>= 3.4.6, < 3.6.0)
+      rack (>= 1.6.2, < 3)
+    omniauth-facebook (5.0.0)
+      omniauth-oauth2 (~> 1.2)
+    omniauth-google-oauth2 (0.5.3)
+      jwt (>= 1.5)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.5)
+    omniauth-oauth2 (1.5.0)
+      oauth2 (~> 1.1)
+      omniauth (~> 1.2)
     orm_adapter (0.5.0)
     owlcarousel-rails (2.2.3.5)
     popper_js (1.14.3)
@@ -253,7 +281,6 @@ GEM
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
-    wdm (0.1.1)
     web-console (3.6.2)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -282,6 +309,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   config
   devise
+  dotenv-rails
   flex-slider-rails
   font-awesome-rails
   jbuilder (~> 2.5)
@@ -291,6 +319,9 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   magnific-popup-rails
   mysql2
+  omniauth
+  omniauth-facebook
+  omniauth-google-oauth2
   owlcarousel-rails
   puma (~> 3.11)
   rails (~> 5.2.0)
@@ -301,12 +332,11 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
-  wdm (>= 0.1.0)
   web-console (>= 3.3.0)
   will_paginate
 
 RUBY VERSION
-   ruby 2.4.4p296
+   ruby 2.4.2p198
 
 BUNDLED WITH
    1.16.3

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  resources :users, only: [:show]
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
     root 'static_pages#home'
     get 'static_pages/contact'
