@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.4.4"
+ruby "2.4.2"
 
 gem "rails", "~> 5.2.0"
 gem "mysql2"
@@ -26,7 +26,11 @@ gem "jquery-dotdotdot-rails"
 gem "flex-slider-rails"
 gem "magnific-popup-rails"
 gem "owlcarousel-rails"
-gem "wdm", ">= 0.1.0"
+# gem "wdm", ">= 0.1.0"
+gem "omniauth"
+gem "omniauth-facebook"
+gem "omniauth-google-oauth2"
+gem 'dotenv-rails', groups: [:development, :test]
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 end
