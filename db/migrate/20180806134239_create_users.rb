@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :phone
       t.integer :gender
-      t.integer :role
+      t.integer :role, default: 0
       t.integer :status
       t.string :provider
       t.string :uid

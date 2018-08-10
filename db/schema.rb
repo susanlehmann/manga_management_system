@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2018_08_09_054826) do
     t.string "name"
     t.integer "phone"
     t.integer "gender"
-    t.integer "role"
+    t.integer "role", default: 0
     t.integer "status"
     t.string "provider"
     t.string "uid"

@@ -14,14 +14,7 @@
 //= require popper
 //= require jquery-ui
 //= require jquery_ujs
-//= require bootstrap.min
-//= require jquery.dotdotdot
-//= require jquery.flexslider-min
-//= require jquery.slidey
-//= require easing
-//= require owl.carousel
-//= require magnific-popup
-//= require custom
+//= require bootstrap
 //= require sb_admin
 //= require activestorage
 //= require turbolinks
