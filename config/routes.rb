@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     root 'static_pages#home'
     get 'static_pages/contact'
     resources :users, only: [:show]
+    resources :categories
     namespace :admin do
       root "admin#index",as: :root
       resources :users,only: [:index,:destroy, :show, :update,:edit] do
