@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+    <div class="center-side col-md-12">
+      <ul class='breadcrumb'><li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'><span itemprop='title'><%= link_to t("home"), root_path %></span></li><li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'><span itemprop='title'><%= link_to t("categories"), categories_path %></span></li><li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'><span itemprop='title'><%= link_to @manga.name, @manga %></span></li></ul>
+      <article id="item-detail">
+        <h1 class="title-detail"><%= @manga.name %></h1>
+        <time class="small">
+        </time>
+        <div class="detail-info">
+          <div class="row">
+            <div class="col-xs-4 col-image">
+            </div>
+            <div class="col-xs-8 col-info">
+              <ul class="list-info">
+                <li class="status row">
+                  <p class="name col-xs-4">
+                    <i class="fa fa-rss">
+                    </i> <%= t(".status") %>
+                  </p>
+                  <p class="col-xs-8"><%= @manga.status %></p>
+                </li>
+                <li class="kind row">
+                  <p class="name col-xs-4">
+                    <i class="fa fa-tags">
+                    </i> <%= t(".category") %>
+                  </p>
+                  <p class="col-xs-8"><%= link_to @manga.category.name, category_url %></p>
+                </li>
+                <li class="row">
+                  <p class="name col-xs-4">
+                    <i class="fa fa-eye">
+                    </i> <%= t(".view") %>
+                  </p>
+                  <p class="col-xs-8"><%= @manga.number_of_read %></p>
+                </li>
+              </ul>
+              <div class="row rating">
+                <div class="col-sm-6">
+                  <div class="star" data-id="12050" data-rating="4.3" data-allowrating="true">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                </div>
+              </div>
+              <div class="mrt10" itemscope="" itemtype="http://schema.org/AggregateRating">
+                <span itemprop="name"><%= @manga.name %> | </span>
+                <%= t(".rate") %>: <span itemprop="ratingValue"><%= @manga.average_rate %></span>/5<meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1">
+              </div>
+              <div class="follow">
+                <span>
+                  <b>1.887</b> Người Đã Theo Dõi
+                </span>
+              </div>
+              <div class="read-action mrt10">
+                <a class="btn btn-warning mrb5" href="http://www.nettruyen.com/truyen-tranh/hard-core-leveling-warrior/chap-1/237001"> Đọc từ đầu</a>
+                <a class="btn btn-warning mrb5" href="http://www.nettruyen.com/truyen-tranh/hard-core-leveling-warrior/chap-39/400905"> Đọc mới nhất</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="detail-content">
+          <h3 class="list-title">
+          <i class="fa fa-file-text-o">
+          </i> <%= t(".detail") %>
+          </h3>
+          <p>  <%= @manga.detail %>
+          </p>
+        </div>
+        <div class="list-chapter" id="nt_listchapter">
+          <h2 class="list-title">
+          <i class="fa fa-list">
+          </i> <%= t(".list_chapters") %>
+          </h2>
+          <nav>
+            <ul>
+              <li class="row heading">
+                <div class="col-xs-5 no-wrap"><%= t(".num_chapters") %></div>
+                <div class="col-xs-4 no-wrap text-center"><%= t(".last_updated") %></div>
+              </li>
+              <li class="row">
+                <div class="col-xs-5 chapter">
+                  <a href="http://www.nettruyen.com/truyen-tranh/hard-core-leveling-warrior/chap-39/400905">Chapter 39</a>
+                </div>
+                <div class="col-xs-4 text-center small">36 phút trước</div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>

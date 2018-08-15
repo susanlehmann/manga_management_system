@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     devise_for :users, skip: :omniauth_callbacks
     resources :users, only: [:show]
     resources :categories
+    resources :mangas
     namespace :admin do
       root "admin#index",as: :root
       resources :users do

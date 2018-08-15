@@ -1,2 +1,10 @@
 <h2><%= t("categories") %></h2>
-  <%= render @categories %>
+<div class="banner-bottom">
+  <div class="container">
+    <div class="w3_agile_banner_bottom_grid">
+      <div id="owl-demo" class="owl-carousel owl-theme">
+        <%= render partial: "shared/category", collection: @categories %>
+      </div>
+    </div>
+  </div>
+</div>
