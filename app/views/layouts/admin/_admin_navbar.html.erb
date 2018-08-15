@@ -152,16 +152,16 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" >
-              <i class="fa fa-fw fa-user-secret"></i><%= t("account") %></a>
+              <i class="fa fa-fw fa-user-secret"></i><%= t(".account") %></a>
               <div class="dropdown-menu">
                 <%= link_to "#", class: "dropdown-item" do %>
-                 <i class="fa fa-fw fa-user"></i><%= t("profile") %>
+                 <i class="fa fa-fw fa-user"></i><%= t(".profile") %>
                 <% end %>
                 <%= link_to "#", class: "dropdown-item" do %>
-                 <i class="fa fa-fw fa-cog"></i><%= t("setting") %>
+                 <i class="fa fa-fw fa-cog"></i><%= t(".setting") %>
                 <% end %>
-                <%= link_to "#", method: :delete, class: "dropdown-item" do %>
-                 <i class="fa fa-fw fa-sign-out"></i><%= t("log_out") %>
+                <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                 <i class="fa fa-fw fa-sign-out"></i><%= t(".log_out") %>
                 <% end %>
               </div>
         </li>

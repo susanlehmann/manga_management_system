@@ -15,6 +15,10 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes
 
+  scope :load_data, -> {select(:id, :avatars, :name, :email, :role)}
+
+  validates_presence_of :name
+
   def set_default_role
     self.role ||= :user
   end
@@ -26,5 +30,28 @@ class User < ApplicationRecord
       user.uid = auth.uid
       user.password = Devise.friendly_token[0,20]
     end
+  end
+
+  def to_csv
+    attributes = %w(id name email roles)
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+      all.find_each do |user|
+        csv << attributes.map { |attr| user.send(attr) }
+      end
+    end
+  end
+
+  def import(file)
+    error_row = []
+    index = 0
+    CSV.foreach(file.path, headers: :true) do |row|
+      user = User.new row.to_hash.merge(password: "12345678")
+      index += 1
+      unless user.save
+        error_row << index
+      end
+    end
+    error_row.join ", "
   end
 end
