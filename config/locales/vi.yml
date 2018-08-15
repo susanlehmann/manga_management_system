@@ -51,3 +51,6 @@ vi:
   social_error: "There was a problem signing in through Social Network"
   signup: "Sign Up"
   signin: "Sign In"
+  categories: ""
+  all_categories: ""
+  home: ""
