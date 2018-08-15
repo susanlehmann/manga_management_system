@@ -12,22 +12,47 @@
     </div>
     <div class="w3l_sign_in_register">
       <ul>
-        <li class="dropdown">
-          <%= link_to "#",class: "dropdown-toggle",data: {toggle: "dropdown"},"role"=>"button","aria-haspopup"=>true,"aria-expanded"=>false do %>Eng
-            <i class="fa fa-language"></i>
+        <li class="dropdown language-selector">
+          Language:
+          <%= link_to "#",class: "dropdown-toggle",data: { toggle: "dropdown",close_others: "true"},"aria-expanded"=>false do %>
+            <%= image_tag("flag-uk.png", alt: " ", title: "english",class: "resize-img" ) %>
           <% end %>
-          <div class="dropdown-menu">
-            <%= link_to_unless_current "English",locale: "en" %>
-          <div class="dropdown-divider"></div>
-            <%= link_to_unless_current "Japan", locale: "jp" %>
-            <%= link_to_unless_current "Vietnam", locale: "vi" %>
-          </div>
+          <ul class="dropdown-menu pull-right">
+            <li class="active">
+              <%= link_to locale: "en" do %>
+                <%= image_tag("flag-uk.png", alt: " ", title: "english",class: "resize-img" ) %>
+                <span>English</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to locale: "vi" do %>
+                <%= image_tag("flag-cn.png", alt: " ", title: "english",class: "resize-img" ) %>
+                <span>Chinese</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to locale: "jp" do %>
+                <%= image_tag("flag-jp.png", alt: " ", title: "english",class: "resize-img" ) %>
+                <span>Japan</span>
+              <% end %>
+            </li>
+          </ul>
         </li>
         <% unless user_signed_in? %>
           <li><a href="#" data-toggle="modal" data-target="#myModal"><%= t(".signin") %></a></li>
         <% else %>
-          <li><%= link_to t("profile"), edit_user_registration_path %></li>
-          <li><%= link_to t("logout"), destroy_user_session_path, method: :delete %></li>
+          <li class="btn-group">
+            <button type="button" class="btn"><%= t".account" %></button>
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><%= link_to t("profile"), edit_user_registration_path %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to t("logout"), destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
         <% end %>
       </ul>
     </div>
@@ -51,47 +76,12 @@
                 <div class="tooltip"><%= t("register") %></div>
               </div>
               <div class="form">
-                <h3><%= t(".login") %></h3>
-                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                  <div class="field">
-                    <%= f.label :email %><br />
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-                  </div>
-                  <div class="field">
-                    <%= f.label :password %><br />
-                    <%= f.password_field :password, autocomplete: "off" %>
-                  </div>
-                  <div class="actions">
-                    <%= f.submit t(".signin") %>
-                  </div>
-                <% end %>
+                <h3><%= t("login") %></h3>
+                <%= render  "layouts/login" %>
               </div>
               <div class="form">
-                <h3><%= t(".create_account") %></h3>
-                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                  <div class="field">
-                    <%= f.label :name %><br />
-                    <%= f.text_field :name, autofocus: true %>
-                  </div>
-                  <div class="field">
-                    <%= f.label :email %><br />
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-                  </div>
-                  <div class="field">
-                    <%= f.label :password %>
-                    <% if @minimum_password_length %>
-                      <em>(<%= @minimum_password_length %> characters minimum)</em>
-                    <% end %><br />
-                    <%= f.password_field :password, autocomplete: "off" %>
-                  </div>
-                  <div class="field">
-                    <%= f.label :password_confirmation %><br />
-                    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-                  </div>
-                  <div class="actions">
-                    <%= f.submit t(".signup") %>
-                  </div>
-                <% end %>
+                <h3><%= t("create_account") %></h3>
+                <%= render  "layouts/registrator" %>
               </div>
               <div class="cta"><%= link_to t(".forgot"), "#" %></div>
             </div>
