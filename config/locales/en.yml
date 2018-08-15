@@ -54,3 +54,9 @@ en:
   categories: "Categories"
   all_categories: "Show All Categories"
   home: "Home Page"
+  admin:
+    users:
+      index:
+        export_csv: "Export CSV"
+        change: "Change"
+        import_csv: "Import CSV"

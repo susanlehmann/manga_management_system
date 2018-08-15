@@ -12,8 +12,19 @@
     </div>
     <div class="w3l_sign_in_register">
       <ul>
+        <li class="dropdown">
+          <%= link_to "#",class: "dropdown-toggle",data: {toggle: "dropdown"},"role"=>"button","aria-haspopup"=>true,"aria-expanded"=>false do %>Eng
+            <i class="fa fa-language"></i>
+          <% end %>
+          <div class="dropdown-menu">
+            <%= link_to_unless_current "English",locale: "en" %>
+          <div class="dropdown-divider"></div>
+            <%= link_to_unless_current "Japan", locale: "jp" %>
+            <%= link_to_unless_current "Vietnam", locale: "vi" %>
+          </div>
+        </li>
         <% unless user_signed_in? %>
-          <li><a href="#" data-toggle="modal" data-target="#myModal"><%= t("signin") %></a></li>
+          <li><a href="#" data-toggle="modal" data-target="#myModal"><%= t(".signin") %></a></li>
         <% else %>
           <li><%= link_to t("profile"), edit_user_registration_path %></li>
           <li><%= link_to t("logout"), destroy_user_session_path, method: :delete %></li>
@@ -40,7 +51,7 @@
                 <div class="tooltip"><%= t("register") %></div>
               </div>
               <div class="form">
-                <h3><%= t("login") %></h3>
+                <h3><%= t(".login") %></h3>
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                   <div class="field">
                     <%= f.label :email %><br />
@@ -51,12 +62,12 @@
                     <%= f.password_field :password, autocomplete: "off" %>
                   </div>
                   <div class="actions">
-                    <%= f.submit t("signin") %>
+                    <%= f.submit t(".signin") %>
                   </div>
                 <% end %>
               </div>
               <div class="form">
-                <h3><%= t("create_account") %></h3>
+                <h3><%= t(".create_account") %></h3>
                 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                   <div class="field">
                     <%= f.label :name %><br />
@@ -78,11 +89,11 @@
                     <%= f.password_field :password_confirmation, autocomplete: "off" %>
                   </div>
                   <div class="actions">
-                    <%= f.submit t("signup") %>
+                    <%= f.submit t(".signup") %>
                   </div>
                 <% end %>
               </div>
-              <div class="cta"><%= link_to t(:forgot), "#" %></div>
+              <div class="cta"><%= link_to t(".forgot"), "#" %></div>
             </div>
           </div>
         </div>
