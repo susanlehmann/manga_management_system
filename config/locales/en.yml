@@ -56,6 +56,21 @@ en:
   all_categories: "Show All Categories"
   home: "Home Page"
   admin:
+    categories:
+      index:
+        name: "Name"
+        count: "Count"
+        create_category: "Create category"
+        all_categories: "All categories"
+      edit:
+        update_category: "Update category"
+        update_category: "Update category"
+      _form:
+        category_title: "Category title"
+      _category:
+        edit: "Edit"
+        delete: "Delete"
+        confirm: "Are you sure?"
     users:
       index:
         export_csv: "Export CSV"
