@@ -54,6 +54,7 @@ en:
   signin: "Sign In"
   categories: "Categories"
   all_categories: "Show All Categories"
+  all_mangas: "Mangas"
   home: "Home Page"
   admin:
     categories:
@@ -77,6 +78,8 @@ en:
         change: "Change"
         import_csv: "Import CSV"
   mangas:
+    index:
+      mangas: "All Mangas"
     show:
       status: "Status"
       category: "Category"
