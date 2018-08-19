@@ -7,9 +7,14 @@ class Manga < ApplicationRecord
   has_many :chapters
   has_many :composes
   has_many :authors, through: :composes
-  belongs_to :category
+  has_many :manga_categories
+  has_many :categories,through: :manga_categories
 
   scope :desc, -> {
     order updated_at: :desc
   }
+  scope :order_manga, -> {order created_at: :desc}
+
+  mount_uploader :thumbnail, ThumbnailUploader
+  mount_uploader :poster, ThumbnailUploader
 end

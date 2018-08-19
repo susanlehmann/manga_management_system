@@ -1,0 +1,29 @@
+<table class="table cat-table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col" >#</th>
+    <th scope="col" ><%= t("name") %></th>
+    <th scope="col" ><%= t("category") %></th>
+    <th scope="col" ><%= t("action") %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @mangas.each.with_index(1) do |manga, index| %>
+    <tr>
+      <td><%= index %></td>
+      <td><%= manga.name %></td>
+      <td>
+        <% manga.categories.each do |cat| %>
+          <%= link_to cat.name, admin_category_path(cat) %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to "Edit", edit_admin_manga_path(manga) %> |
+        <%= link_to "Delete", admin_manga_path(manga.id), method: :delete,
+              data: { confirm: t("confim") } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= will_paginate @mangass %>

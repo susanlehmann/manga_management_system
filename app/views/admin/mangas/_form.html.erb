@@ -1,0 +1,47 @@
+<%= form_for [:admin, @manga] do |f| %>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="block-section">
+        <h3><%= t("manga_name") %></h3>
+        <%= f.text_field :name, class: "form-control",
+          placeholder: t("enter_manga_title") %>
+      </div>
+      <div class="block-section">
+        <h3><%= t("manga_information") %></h3>
+        <%= f.cktext_area :detail, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="block-section">
+        <h3><%= t("manga_category") %></h3>
+        <ul class="list-cat">
+          <%= f.collection_check_boxes :category_id,
+            Category.all, :id, :name do |cate| %>
+            <li>
+              <%= cate.check_box %>
+              <%= cate.label %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="block-section">
+        <h3><%= t("Country") %></h3>
+        <%= f.text_field :country, class: "form-control",
+          placeholder: t("enter_manga_country") %>
+      </div>
+      <div class="block-section">
+        <h3><%= t("manga_thumbnail") %></h3>
+        <%= f.file_field :thumbnail %>
+        <%= f.hidden_field :thumbnail_cache %>
+        <%= image_tag @manga.thumbnail_url, class: "preview" if @manga.thumbnail? %>
+        <h3><%= t("manga_poster") %></h3>
+        <%= f.file_field :poster %>
+        <%= f.hidden_field :poster_cache %>
+        <%= image_tag @manga.poster_url, class: "preview" if @manga.poster? %>
+      </div>
+      <div class="block-section">
+        <%= f.submit yield(:btn_title), class: "btn btn-default" %>
+      </div>
+    </div>
+  </div>
+<% end %>

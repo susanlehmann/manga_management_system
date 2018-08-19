@@ -16,5 +16,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require sb_admin
+//= require ckeditor/init
 //= require activestorage
 //= require turbolinks

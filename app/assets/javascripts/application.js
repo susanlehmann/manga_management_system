@@ -22,6 +22,6 @@
 //= require owl.carousel
 //= require magnific-popup
 //= require custom
-//= require sb_admin
+//= require ckeditor/init
 //= require activestorage
 //= require turbolinks
