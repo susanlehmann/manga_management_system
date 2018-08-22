@@ -1,0 +1,29 @@
+<%= form_for [:admin, @anime] do |f| %>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="block-section">
+        <h3><%= t("anime_name") %></h3>
+        <%= f.text_field :name, class: "form-control",
+          placeholder: t("enter_anime_name") %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="block-section">
+        <h3><%= t("manga_category") %></h3>
+        <ul class="list-cat">
+          <%= f.collection_select :manga_id,
+            Manga.all, :id, :name %>
+        </ul>
+      </div>
+      <div class="block-section">
+        <h3><%= t("anime_thumbnail") %></h3>
+        <%= f.file_field :video_thumbnail %>
+        <%= f.hidden_field :video_thumbnail_cache %>
+        <%= image_tag @anime.video_thumbnail_url, class: "preview" if @anime.video_thumbnail? %>
+      </div>
+      <div class="block-section">
+        <%= f.submit yield(:btn_title), class: "btn btn-default" %>
+      </div>
+    </div>
+  </div>
+<% end %>
