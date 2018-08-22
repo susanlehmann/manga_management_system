@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       root "admin#index",as: :root
       resources :categories
       resources :mangas
+      resources :chapters
       resources :users do
         collection do
           post :import
@@ -23,4 +24,5 @@ Rails.application.routes.draw do
   end
   match '*.path', to: redirect("/#{I18n.default_locale}/%{path}"), :via => [:get, :post]
   match '', to: redirect("/#{I18n.default_locale}"), :via => [:get, :post]
+  match "*path" => redirect("/"), via: :get
 end

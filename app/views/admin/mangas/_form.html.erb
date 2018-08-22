@@ -15,7 +15,7 @@
       <div class="block-section">
         <h3><%= t("manga_category") %></h3>
         <ul class="list-cat">
-          <%= f.collection_check_boxes :category_id,
+          <%= f.collection_check_boxes :category_ids,
             Category.all, :id, :name do |cate| %>
             <li>
               <%= cate.check_box %>

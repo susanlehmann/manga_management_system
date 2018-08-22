@@ -33,3 +33,4 @@
 /config/credentials.yml.enc
 /test/*
 .env
+/public/uploads/*

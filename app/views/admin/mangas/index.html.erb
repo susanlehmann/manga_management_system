@@ -18,12 +18,12 @@
         <% end %>
       </td>
       <td>
-        <%= link_to "Edit", edit_admin_manga_path(manga) %> |
-        <%= link_to "Delete", admin_manga_path(manga.id), method: :delete,
+        <%= link_to t(".edit"), edit_admin_manga_path(manga) %> |
+        <%= link_to t(".delete"), admin_manga_path(manga.id), method: :delete,
               data: { confirm: t("confim") } %>
       </td>
     </tr>
   <% end %>
   </tbody>
 </table>
-<%= will_paginate @mangass %>
+<%= will_paginate @mangas %>

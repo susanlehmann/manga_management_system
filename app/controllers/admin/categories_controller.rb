@@ -1,5 +1,6 @@
 class Admin::CategoriesController < Admin::AdminController
   before_action :find_category, only: [:edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     @categories = Category.paginate page: params[:page], per_page: Settings.categories.page
