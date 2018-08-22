@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :categories
       resources :mangas
       resources :chapters
+      resources :animes
       resources :users do
         collection do
           post :import

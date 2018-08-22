@@ -8,21 +8,21 @@
   </tr>
   </thead>
   <tbody>
-    <% @chapters.each.with_index(1) do |chapter, index| %>
+    <% @animes.each.with_index(1) do |anime, index| %>
       <tr>
         <td><%= index %></td>
-        <td><%= chapter.id %></td>
+        <td><%= anime.name %></td>
         <td>
-          <%= link_to chapter.manga.name, admin_manga_path(chapter) %>
+          <%= link_to anime.manga.name, admin_manga_path(anime) %>
         </td>
         <td>
-          <%= link_to t(".edit"), edit_admin_chapter_path(chapter) %> |
-          <%= link_to t(".delete"), admin_chapter_path(chapter.id), method: :delete,
+          <%= link_to t(".edit"), edit_admin_anime_path(anime) %> |
+          <%= link_to t(".delete"), admin_anime_path(anime.id), method: :delete,
                 data: { confirm: t("confim") } %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @chapters %>
-<%= link_to t("create"), new_admin_chapter_path, class: "btn btn success" %>
+<%= will_paginate @animes %>
+<%= link_to t("create"), new_admin_anime_path, class: "btn btn_success" %>
