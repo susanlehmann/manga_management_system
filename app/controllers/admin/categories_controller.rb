@@ -33,7 +33,7 @@ class Admin::CategoriesController < Admin::AdminController
       flash[:success] = t(".categories_deleted")
       redirect_to admin_categories_path
     else
-      flash[:success] = t(".categories_not_deleted")
+      flash[:danger] = t(".categories_not_deleted")
       render :index
     end
   end
