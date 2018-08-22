@@ -1,5 +1,6 @@
 class Admin::MangasController < Admin::AdminController
   before_action :find_manga, only: [:edit, :update, :show, :destroy]
+  load_and_authorize_resource
 
   def index
     @mangas = Manga.order_manga.paginate page: params[:page], per_page: Settings.mangas.page
@@ -50,11 +51,11 @@ class Admin::MangasController < Admin::AdminController
 
   def manga_params
     params.require(:manga).permit(:name, :detail, :poster,
-      :poster_cache, :thumbnail, :thumbnail_cache, :country)
+      :poster_cache, :thumbnail, :thumbnail_cache, :country, category_ids: [])
   end
 
   def find_manga
-    @manga = manga.find_by id: params[:id]
+    @manga = Manga.find_by id: params[:id]
     redirect_to admin_mangas_path if @manga.nil?
   end
 end

@@ -5,9 +5,7 @@ class Ability
     user ||= User.new
     case controller_namespace
       when 'Admin'
-        if user.admin?
-          can :manage, :all
-        end
+        can :manage, :all if user.admin?
       else
         can :read, :all
         can :update, User,id: user.id

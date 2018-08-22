@@ -1,5 +1,6 @@
 class Admin::UsersController < Admin::AdminController
   before_action :load_user, only: [:show, :destroy, :update,:edit]
+  load_and_authorize_resource
   def index
     @users = User.load_data.paginate(page: params[:page], per_page: Settings.users.page)
     #@import = User::Import.new
