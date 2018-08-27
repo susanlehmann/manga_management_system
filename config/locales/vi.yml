@@ -90,11 +90,22 @@ vi:
       list_chapters: "Danh sách chương"
       num_chapters: "Số chương"
       last_updated: "Cập nhật lần cuối"
-      updating: "Updating"
+      updating: "Đang cập nhật"
+      first_chapter: "Đọc tập đầu"
+      last_chapter: "Đọc tập mới nhất"
+    follow:
+      followed: "Được theo dõi bởi"
+      users: "người dùng"
+      follow: "Theo dõi"
+    unfollow:
+      followed: "Được theo dõi bởi"
+      users: "người dùng"
+      unfollow: "Bỏ theo dõi"
   chapters:
     show:
       updated_at: "Cập nhật lần cuối"
       info: "Dùng mũi tên trái (←) hoặc phải (→) để chuyển chapter"
+      select_title: "Chọn một tập"
   authors:
     show:
       author: "Author"

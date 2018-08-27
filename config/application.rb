@@ -19,5 +19,6 @@ module MangaManagementSystem
     config.generators.system_tests = nil
 
     config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end

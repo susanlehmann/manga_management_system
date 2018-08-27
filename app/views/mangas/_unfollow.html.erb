@@ -1,0 +1,7 @@
+<%= form_for(current_user.active_relationships.find_by(followed_id: @manga.id),
+             html: { method: :delete },remote: true) do |f| %>
+  <%= f.submit t(".unfollow"), class: "btn" %>
+    <div>
+      <%= t(".followed") %> : <%= @manga.followers.count %> <%= t(".users") %>
+    </div>
+<% end %>

@@ -5,11 +5,20 @@ Rails.application.routes.draw do
     root 'static_pages#home'
     get 'static_pages/contact'
     devise_for :users, skip: :omniauth_callbacks,controller: {registrations: "registrations"}
-    resources :users, only: [:show]
+    resources :users, only: [:show] do
+      member do
+        get :following
+      end
+    end
     resources :categories
-    resources :mangas
+    resources :mangas do
+      member do
+        get :followers
+      end
+    end
     resources :chapters
     resources :authors
+    resources :relationships, only: [:create, :destroy]
     namespace :admin do
       root "admin#index",as: :root
       resources :categories
