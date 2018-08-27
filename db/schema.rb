@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_22_135857) do
+ActiveRecord::Schema.define(version: 2018_08_27_034306) do
 
   create_table "animes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2018_08_22_135857) do
 
   create_table "chapters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "manga_id"
+    t.string "name"
     t.text "images"
     t.text "content"
     t.datetime "created_at", null: false
@@ -73,15 +74,6 @@ ActiveRecord::Schema.define(version: 2018_08_22_135857) do
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_composes_on_author_id"
     t.index ["manga_id"], name: "index_composes_on_manga_id"
-  end
-
-  create_table "follows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "manga_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["manga_id"], name: "index_follows_on_manga_id"
-    t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -123,6 +115,16 @@ ActiveRecord::Schema.define(version: 2018_08_22_135857) do
     t.datetime "updated_at", null: false
     t.index ["manga_id"], name: "index_rates_on_manga_id"
     t.index ["user_id"], name: "index_rates_on_user_id"
+  end
+
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

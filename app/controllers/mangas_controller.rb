@@ -8,6 +8,7 @@ class MangasController < ApplicationController
   def show
     @chapters = @manga.chapters.all
     @authors = @manga.authors.all
+    @categories = @manga.categories.all
   end
 
   private

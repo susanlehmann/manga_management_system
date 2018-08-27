@@ -3,13 +3,15 @@ class Manga < ApplicationRecord
   has_many :rates
   has_many :comments
   has_many :likes
-  has_many :follows
   has_many :chapters
   has_many :composes
   has_many :authors, through: :composes
   has_many :manga_categories
   has_many :categories,through: :manga_categories
-
+  has_many :passive_relationships, class_name:  Relationship.name,
+                                   foreign_key: "followed_id",
+                                   dependent:   :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
   scope :desc, -> {
     order updated_at: :desc
   }

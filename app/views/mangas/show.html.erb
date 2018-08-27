@@ -36,7 +36,7 @@
                     <i class="fa fa-tags">
                     </i> <%= t(".category") %>
                   </p>
-                  <p class="col-xs-8"><%= link_to @manga.category.name, category_url %></p>
+                  <p class="col-xs-8"><%= render partial: "shared/category", collection: @categories %></p>
                 </li>
                 <li class="row">
                   <p class="name col-xs-4">
@@ -59,14 +59,22 @@
                 <%= t(".rate") %>: <span itemprop="ratingValue"><%= @manga.average_rate %></span>/5<meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1">
               </div>
               <div class="follow">
-                <span>
-                  <b>1.887</b> Người Đã Theo Dõi
-                </span>
+                <% if user_signed_in? %>
+                <div id="follow_form">
+                  <% if current_user.following?(@manga) %>
+                    <%= render 'unfollow' %>
+                  <% else %>
+                    <%= render 'follow' %>
+                  <% end %>
+                </div>
+                <% end %>
               </div>
-              <div class="read-action mrt10">
-                <a class="btn btn-warning mrb5" href="http://www.nettruyen.com/truyen-tranh/hard-core-leveling-warrior/chap-1/237001"> Đọc từ đầu</a>
-                <a class="btn btn-warning mrb5" href="http://www.nettruyen.com/truyen-tranh/hard-core-leveling-warrior/chap-39/400905"> Đọc mới nhất</a>
-              </div>
+                <% if @chapters.present? %>
+                  <div class="read-action mrt10">
+                    <%= link_to t(".first_chapter"), chapter_path(@chapters.first), class: "btn btn-warning mrb5" %>
+                    <%= link_to t(".last_chapter"), chapter_path(@chapters.last), class: "btn btn-warning mrb5" %>
+                  </div>
+                <% end %>
             </div>
           </div>
         </div>

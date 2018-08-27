@@ -91,10 +91,21 @@ en:
       num_chapters: "Chapters"
       last_updated: "Last Updated"
       updating: "Updating"
+      first_chapter: "Read first chapter"
+      last_chapter: "Read lastest chapter"
+    follow:
+      followed: "Followed by"
+      users: "users"
+      follow: "Follow"
+    unfollow:
+      followed: "Followed by"
+      users: "users"
+      unfollow: "Unfollow"
   chapters:
     show:
       updated_at: "Last updated"
       info: "Use left arrow (←) or right arrow (→) to change chapter"
+      select_title: "Select a chapter"
   authors:
     show:
       author: "Author"

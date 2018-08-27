@@ -1,0 +1,15 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section>
+      <h1><%= @user.name %></h1>
+      <span><%= link_to "view my profile", @user %></span>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @mangas.any? %>
+      <ul>
+        <%= render partial: "shared/manga", collection: @mangas %>
+      </ul>
+    <% end %>
+  </div>
+</div>

@@ -10,7 +10,7 @@
           </li>
           <li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'>
             <span itemprop='title'>
-              <%= link_to @chapter.category.name, category_path(@chapter.category) %>
+              <%= link_to t("categories"), categories_path %>
             </span>
           </li>
           <li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'>
@@ -36,10 +36,14 @@
         </div>
         <div class="chapter-nav">
           <a class="home" href="<% root_path %>" title="<%= t("home") %>"><i class="fa fa-home"></i></a>
-          <select class="select-chapter">
-            <% chapters_array = @chapters.map { |chapter| [chapter.name] } %>
-            <%= options_for_select(chapters_array) %>
+          <%= link_to "", @previous, class: "fa fa-arrow-left" %>
+          <select class="select-chapter", onChange="if(this.selectedIndex!=0) self.location=this.options[this.selectedIndex].value">
+            <option><%= t(".select_title") %></option>
+            <% @chapters.each do |chapter| %>
+              <option value="<%= chapter_path(chapter) %>"><%= chapter.name %></option>
+            <% end %>
           </select>
+          <%= link_to "", @next, class: "fa fa-arrow-right" %>
         </div>
       </div>
     </div>

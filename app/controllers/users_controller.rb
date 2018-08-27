@@ -3,6 +3,11 @@ class UsersController < ApplicationController
 
   def show; end
 
+  def following
+    @mangas = @user.following
+    render :show_follow
+  end
+
   private
   def find_user
     @user = User.find_by id: params[:id]

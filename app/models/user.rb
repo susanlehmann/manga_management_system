@@ -11,9 +11,12 @@ class User < ApplicationRecord
   after_initialize :set_default_role, if: :new_record?
 
   has_many :rates
-  has_many :follows
   has_many :comments
   has_many :likes
+  has_many :active_relationships, class_name: Relationship.name,
+            foreign_key: "follower_id",
+            dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
 
   scope :load_data, -> {select(:id, :name, :email, :role)}
 
@@ -53,5 +56,17 @@ class User < ApplicationRecord
       end
     end
     error_row.join ", "
+  end
+
+  def follow(manga)
+    following << manga
+  end
+
+  def unfollow(manga)
+    following.delete(manga)
+  end
+
+  def following?(manga)
+    following.include?(manga)
   end
 end
