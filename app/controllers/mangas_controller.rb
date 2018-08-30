@@ -2,13 +2,13 @@ class MangasController < ApplicationController
   before_action :get_manga, only: [:show]
 
   def index
-    @mangas = Manga.desc.all
+    @mangas = Manga.order_manga
   end
 
   def show
-    @chapters = @manga.chapters.all
+    @chapters = @manga.chapters.order("LENGTH(name)").order(:name)
     @authors = @manga.authors.all
-    @categories = @manga.categories.all
+    @categories = @manga.categories.order(:name)
   end
 
   private

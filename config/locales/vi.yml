@@ -56,6 +56,15 @@ vi:
   all_categories: "Tất cả thể loại"
   all_mangas: "Truyện"
   home: "Trang chủ"
+  feature_manga: "Manga Đề Xuất"
+  featured: "Đề xuất"
+  most_view: "Xem nhiều nhất"
+  top_rate: "Đánh gía cao nhất"
+  recent_add: "Mới thêm"
+  popular: "Manga Được Ưa Thích"
+  detail: "Nội dung"
+  release_time: "Ngày đăng"
+  category: "Thể loại"
   admin:
     categories:
       index:
@@ -109,3 +118,6 @@ vi:
   authors:
     show:
       author: "Author"
+  time:
+    formats:
+      dmy: "%d-%m-%Y"
