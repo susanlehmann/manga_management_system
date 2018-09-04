@@ -43,6 +43,7 @@ vi:
         profile: "Thông tin cá nhân"
         logout: "Đăng xuất"
         account: "Tài khoản"
+        search: "Tìm truyện..."
     footer:
         coryright: "2018 Manga Anime. All rights reserved | Design by Killua"
   update: "Cập nhật"

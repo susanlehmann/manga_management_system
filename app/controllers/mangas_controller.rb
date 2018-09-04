@@ -3,12 +3,19 @@ class MangasController < ApplicationController
 
   def index
     @mangas = Manga.order_manga
+    q = params[:search]
+    if q
+      @mangas = Manga.search(name_cont: q).result
+    else
+      @mangas = Manga.order_manga
+    end
   end
 
   def show
     @chapters = @manga.chapters.order("LENGTH(name)").order(:name)
     @authors = @manga.authors.all
     @categories = @manga.categories.order(:name)
+    Manga.increment_counter(:number_of_read, @manga.id)
   end
 
   private
