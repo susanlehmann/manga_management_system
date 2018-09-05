@@ -32,18 +32,18 @@
 vi:
   layouts:
     header:
-        forgot: "Quên mật khẩu?"
-        create_account: "Tạo mới tài khoản"
-        login: "Đăng nhập vào tài khoản"
-        register: "Đăng ký"
-        title_login: "Đăng nhập và Đăng ký"
-        signin: "Đăng nhập"
-        mag: "Mag"
-        anime: "Anime"
-        profile: "Thông tin cá nhân"
-        logout: "Đăng xuất"
-        account: "Tài khoản"
-        search: "Tìm truyện..."
+      forgot: "Quên mật khẩu?"
+      create_account: "Tạo mới tài khoản"
+      login: "Đăng nhập vào tài khoản"
+      register: "Đăng ký"
+      title_login: "Đăng nhập và Đăng ký"
+      signin: "Đăng nhập"
+      mag: "Mag"
+      anime: "Anime"
+      profile: "Thông tin cá nhân"
+      logout: "Đăng xuất"
+      account: "Tài khoản"
+      search: "Tìm truyện..."
     footer:
         coryright: "2018 Manga Anime. All rights reserved | Design by Killua"
   update: "Cập nhật"
@@ -55,17 +55,23 @@ vi:
   signin: "Đăng nhập"
   categories: "Thể loại"
   all_categories: "Tất cả thể loại"
-  all_mangas: "Truyện"
+  all_mangas: "Tất cả Manga"
   home: "Trang chủ"
   feature_manga: "Manga Đề Xuất"
   featured: "Đề xuất"
-  most_view: "Xem nhiều nhất"
-  top_rate: "Đánh gía cao nhất"
-  recent_add: "Mới thêm"
+  most_view: "Manga xem nhiều nhất"
+  top_rate: "Manga đánh gía cao nhất"
+  recent_add: "Manga mới thêm"
+  most_follow: "Manga theo dõi nhiều nhất"
   popular: "Manga Được Ưa Thích"
   detail: "Nội dung"
   release_time: "Ngày đăng"
   category: "Thể loại"
+  search: "Tìm kiếm nâng cao"
+  list: "Liệt kê theo"
+  full: "Truyện full"
+  continue: "Truyện tiếp diễn"
+  follow: "Truyện đang theo dõi"
   admin:
     categories:
       index:
@@ -122,3 +128,11 @@ vi:
   time:
     formats:
       dmy: "%d-%m-%Y"
+      author: "Tác gỉa"
+  comments:
+    comment_form:
+      comment: "comment"
+  searches:
+    index:
+      title: "Tìm kiếm nâng cao"
+      category_search: "Tìm kiếm theo bất kỳ thể loại"

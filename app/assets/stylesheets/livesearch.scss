@@ -4,24 +4,6 @@
   overflow-x: hidden;
 }
 
-li.search-item {
-  height: 75px;
-  margin: 10px;
-  &:hover {
-    background-color: #ecf0f1;
-    cursor:pointer;
-  }
-  a:link {
-   color:inherit;
-  }
-}
-
-#livesearch {
-  a {
-    color: #66757f;
-  }
-}
-
 .search-form {
   display: table;
   width: 500px;
@@ -40,8 +22,3 @@ li.search-item {
     }
 }
 
-.dropdown-menu {
-  padding: 0;
-  border: none;
-  width: 100%;
-}

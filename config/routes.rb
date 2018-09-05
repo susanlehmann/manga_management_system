@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     end
     resources :authors
     resources :relationships, only: [:create, :destroy]
+    resources :searches, only: :index
     namespace :admin do
       root "admin#index",as: :root
       resources :categories

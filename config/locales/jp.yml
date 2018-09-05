@@ -32,18 +32,18 @@
 jp:
   layouts:
     header:
-        forgot: "Forgot your password?"
-        create_account: "Create to Account"
-        login: "Login to your account"
-        register: "Register"
-        title_login: "Sign In & Sign Up"
-        signin: "Login"
-        mag: "Mag"
-        anime: "Anime"
-        profile: ""
-        logout: ""
-        account: "Account"
-        search: "Search manga..."
+      forgot: "Forgot your password?"
+      create_account: "Create to Account"
+      login: "Login to your account"
+      register: "Register"
+      title_login: "Sign In & Sign Up"
+      signin: "Login"
+      mag: "Mag"
+      anime: "Anime"
+      profile: ""
+      logout: ""
+      account: "Account"
+      search: "Search manga..."
     footer:
       coryright: "2018 Manga Anime. All rights reserved | Design by Killua"
   update: "Update"
@@ -62,10 +62,16 @@ jp:
   most_view: "Most Viewed"
   top_rate: "Top Rated"
   recent_add: "Recently Added"
+  most_follow: "Most Followed"
   popular: "Most Popular Mangas"
   detail: "Detail"
   release_time: "Release Time"
   category: "Category"
+  search: "Advanced Search"
+  list: "List By"
+  full: "Completed Mangas"
+  continue: "Continued Mangas"
+  follow: "Followings"
   admin:
     categories:
       index:
@@ -122,3 +128,10 @@ jp:
   time:
     formats:
       dmy: "%d-%m-%Y"
+  comments:
+    comment_form:
+      comment: "comment"
+  searches:
+    index:
+      title: "Addvanced Search"
+      category_search: "Search by any of these categories"

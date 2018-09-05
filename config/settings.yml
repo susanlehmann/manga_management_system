@@ -7,6 +7,12 @@ mangas:
   page: 5
   show:
     pages: 5
+  truncate: 10
+  most_view: "most_view"
+  top_rate: "top_rate"
+  finished: "finished"
+  not_finished: "not_finished"
+  most_followed: "most_followed"
 chapters:
   page: 5
 animes:

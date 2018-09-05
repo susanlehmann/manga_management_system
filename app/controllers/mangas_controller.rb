@@ -3,16 +3,20 @@ class MangasController < ApplicationController
 
   def index
     @mangas = Manga.order_manga
-    q = params[:search]
-    if q
-      @mangas = Manga.search(name_cont: q).result
+    if params[:search].present?
+      @mangas = Manga.search(name_cont: params[:search]).result
+      if params[:scope].present?
+        check_scope.search(name_cont: params[:search]).result
+      end
     else
-      @mangas = Manga.order_manga
+      if params[:scope].present?
+        check_scope
+      end
     end
   end
 
   def show
-    @chapters = @manga.chapters.order("LENGTH(name)").order(:name)
+    @chapters = @manga.chapters.reverse
     @authors = @manga.authors.all
     @categories = @manga.categories.order(:name)
     @supports = Supports::Manga.new @manga
@@ -26,6 +30,23 @@ class MangasController < ApplicationController
     @manga = Manga.find_by id: params[:id]
     if @manga.nil?
       redirect_to root_url
+    end
+  end
+
+  def check_scope
+    @mangas = case params[:scope]
+    when Settings.mangas.most_view
+      Manga.most_view
+    when Settings.mangas.top_rate
+      Manga.top_rate
+    when Settings.mangas.finished
+      Manga.finished.order(:name)
+    when Settings.mangas.not_finished
+      Manga.not_finished.order(:name)
+    when Settings.mangas.most_followed
+      Manga.most_followed
+    else
+      Manga.order_manga
     end
   end
 end
