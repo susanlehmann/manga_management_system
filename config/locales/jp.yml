@@ -56,6 +56,15 @@ jp:
   all_categories: ""
   all_mangas: "Mangas"
   home: ""
+  feature_manga: "Featured Mangas"
+  featured: "Featured"
+  most_view: "Most Viewed"
+  top_rate: "Top Rated"
+  recent_add: "Recently Added"
+  popular: "Most Popular Mangas"
+  detail: "Detail"
+  release_time: "Release Time"
+  category: "Category"
   admin:
     categories:
       index:
@@ -109,3 +118,6 @@ jp:
   authors:
     show:
       author: "Author"
+  time:
+    formats:
+      dmy: "%d-%m-%Y"

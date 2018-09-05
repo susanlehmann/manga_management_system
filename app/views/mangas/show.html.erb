@@ -5,7 +5,7 @@
       <article id="item-detail">
         <h1 class="title-detail"><%= @manga.name %></h1>
         <time class="small">
-        <%= t(".last_updated") %> : <%= @manga.updated_at.strftime("%d-%m-%Y") %>
+        <%= t(".last_updated") %> : <%= l(@manga.updated_at, format: :dmy) %>
         </time>
         <div class="detail-info">
           <div class="row">
@@ -19,9 +19,9 @@
                     </i> <%= t(".author") %>
                   </p>
                   <% if @manga.authors.nil? %>
-                  <p class="col-xs-8"><%= t(".updating") %></p>
+                    <p class="col-xs-8"><%= t(".updating") %></p>
                   <% else %>
-                  <p class="col-xs-8"><%= render partial: "author", collection: @authors %></p>
+                    <p class="col-xs-8"><%= render partial: "author", collection: @authors %></p>
                   <% end %>
                 </li>
                 <li class="status row">

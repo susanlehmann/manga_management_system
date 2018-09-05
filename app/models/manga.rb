@@ -12,10 +12,10 @@ class Manga < ApplicationRecord
                                    foreign_key: "followed_id",
                                    dependent:   :destroy
   has_many :followers, through: :passive_relationships, source: :follower
-  scope :desc, -> {
-    order updated_at: :desc
-  }
+
   scope :order_manga, -> {order created_at: :desc}
+  scope :most_view, -> {order number_of_read: :desc}
+  scope :top_rate, -> {order average_rate: :desc}
 
   mount_uploader :thumbnail, ThumbnailUploader
   mount_uploader :poster, ThumbnailUploader
