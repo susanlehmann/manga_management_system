@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
     root 'static_pages#home'
     get 'static_pages/contact'
+    get "search(/:search)", to: "searches#index", as: :search
     devise_for :users, skip: :omniauth_callbacks,controller: {registrations: "registrations"}
     resources :users, only: [:show] do
       member do

@@ -43,6 +43,7 @@ jp:
         profile: ""
         logout: ""
         account: "Account"
+        search: "Search manga..."
     footer:
       coryright: "2018 Manga Anime. All rights reserved | Design by Killua"
   update: "Update"
