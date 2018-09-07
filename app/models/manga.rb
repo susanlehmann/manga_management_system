@@ -16,10 +16,10 @@ class Manga < ApplicationRecord
   scope :most_view, -> {order number_of_read: :desc}
   scope :top_rate, -> {order average_rate: :desc}
   ratyrate_rateable "rate_manga", "rate_chapter"
-
+  acts_as_votable
   mount_uploader :thumbnail, ThumbnailUploader
   mount_uploader :poster, ThumbnailUploader
-  
+
   def overall_ratings(manga)
     array = Rate.rateable
     stars = array.map {|manga| manga.stars }

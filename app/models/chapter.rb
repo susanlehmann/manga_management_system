@@ -1,5 +1,6 @@
 class Chapter < ApplicationRecord
   belongs_to :manga
+  acts_as_votable
 
   mount_uploader :images, ThumbnailUploader
 

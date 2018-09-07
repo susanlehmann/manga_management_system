@@ -17,8 +17,11 @@ Rails.application.routes.draw do
       member do
         get :followers
       end
+      resources :vote_mangas, only: [:create, :destroy]
     end
-    resources :chapters
+    resources :chapters do
+      resources :votes,only: [:create,:destroy]
+    end
     resources :authors
     resources :relationships, only: [:create, :destroy]
     namespace :admin do

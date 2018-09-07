@@ -11,7 +11,7 @@
     <% @chapters.each.with_index(1) do |chapter, index| %>
       <tr>
         <td><%= index %></td>
-        <td><%= chapter.id %></td>
+        <td><%= chapter.name %></td>
         <td>
           <%= link_to chapter.manga.name, admin_manga_path(chapter) %>
         </td>
