@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_06_080224) do
+ActiveRecord::Schema.define(version: 2018_09_07_114912) do
 
-  create_table "animes", force: :cascade do |t|
+  create_table "animes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.integer "manga_id"
+    t.bigint "manga_id"
     t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -22,16 +22,16 @@ ActiveRecord::Schema.define(version: 2018_09_06_080224) do
     t.index ["manga_id"], name: "index_animes_on_manga_id"
   end
 
-  create_table "authors", force: :cascade do |t|
+  create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "average_caches", force: :cascade do |t|
-    t.integer "rater_id"
+  create_table "average_caches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "rater_id"
     t.string "rateable_type"
-    t.integer "rateable_id"
+    t.bigint "rateable_id"
     t.float "avg", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,15 +40,15 @@ ActiveRecord::Schema.define(version: 2018_09_06_080224) do
     t.index ["rater_id"], name: "index_average_caches_on_rater_id"
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "chapters", force: :cascade do |t|
-    t.integer "manga_id"
+  create_table "chapters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "manga_id"
     t.string "name"
     t.text "images"
     t.text "content"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2018_09_06_080224) do
     t.index ["manga_id"], name: "index_chapters_on_manga_id"
   end
 
-  create_table "ckeditor_assets", force: :cascade do |t|
+  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
     t.integer "data_file_size"
@@ -69,9 +69,9 @@ ActiveRecord::Schema.define(version: 2018_09_06_080224) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "manga_id"
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "manga_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -79,34 +79,34 @@ ActiveRecord::Schema.define(version: 2018_09_06_080224) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "composes", force: :cascade do |t|
-    t.integer "author_id"
-    t.integer "manga_id"
+  create_table "composes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "author_id"
+    t.bigint "manga_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_composes_on_author_id"
     t.index ["manga_id"], name: "index_composes_on_manga_id"
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "manga_id"
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "manga_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["manga_id"], name: "index_likes_on_manga_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "manga_categories", force: :cascade do |t|
-    t.integer "manga_id"
-    t.integer "category_id"
+  create_table "manga_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "manga_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_manga_categories_on_category_id"
     t.index ["manga_id"], name: "index_manga_categories_on_manga_id"
   end
 
-  create_table "mangas", force: :cascade do |t|
+  create_table "mangas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.text "detail"
     t.integer "number_of_read", default: 0
@@ -119,9 +119,9 @@ ActiveRecord::Schema.define(version: 2018_09_06_080224) do
     t.string "country"
   end
 
-  create_table "overall_averages", force: :cascade do |t|
+  create_table "overall_averages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "rateable_type"
-    t.integer "rateable_id"
+    t.bigint "rateable_id"
     t.float "overall_avg", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -129,10 +129,10 @@ ActiveRecord::Schema.define(version: 2018_09_06_080224) do
     t.index ["rateable_type", "rateable_id"], name: "index_overall_averages_on_rateable_type_and_rateable_id"
   end
 
-  create_table "rates", force: :cascade do |t|
-    t.integer "rater_id"
+  create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "rater_id"
     t.string "rateable_type"
-    t.integer "rateable_id"
+    t.bigint "rateable_id"
     t.float "stars", null: false
     t.string "dimension"
     t.datetime "created_at", null: false
@@ -142,9 +142,9 @@ ActiveRecord::Schema.define(version: 2018_09_06_080224) do
     t.index ["rater_id"], name: "index_rates_on_rater_id"
   end
 
-  create_table "rating_caches", force: :cascade do |t|
+  create_table "rating_caches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "cacheable_type"
-    t.integer "cacheable_id"
+    t.bigint "cacheable_id"
     t.float "avg", null: false
     t.integer "qty", null: false
     t.string "dimension"
@@ -154,7 +154,7 @@ ActiveRecord::Schema.define(version: 2018_09_06_080224) do
     t.index ["cacheable_type", "cacheable_id"], name: "index_rating_caches_on_cacheable_type_and_cacheable_id"
   end
 
-  create_table "relationships", force: :cascade do |t|
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
     t.datetime "created_at", null: false
@@ -164,7 +164,7 @@ ActiveRecord::Schema.define(version: 2018_09_06_080224) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "phone"
     t.integer "gender"
@@ -188,4 +188,22 @@ ActiveRecord::Schema.define(version: 2018_09_06_080224) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "votable_type"
+    t.bigint "votable_id"
+    t.string "voter_type"
+    t.bigint "voter_id"
+    t.boolean "vote_flag"
+    t.string "vote_scope"
+    t.integer "vote_weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+    t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
+  end
+
+  add_foreign_key "manga_categories", "categories"
+  add_foreign_key "manga_categories", "mangas"
 end
