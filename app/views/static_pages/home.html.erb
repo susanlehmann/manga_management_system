@@ -1,73 +1,54 @@
-<!-- //banner -->
-<!-- banner-bottom -->
 <div class="banner-bottom">
-	<div class="container">
-		<div class="w3_agile_banner_bottom_grid">
-			<div id="owl-demo" class="owl-carousel owl-theme">
-				<%#= render partial: "slider", collection: @slider, as: :manga %>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- //banner-bottom -->
-<!-- general -->
-<div class="general">
-	<h4 class="latest-text w3_latest_text"><%= t("feature_manga") %></h4>
-	<div class="container">
-		<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-			<ul id="myTab" class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><%= t("featured") %></a></li>
-				<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false"><%= t("most_view") %></a></li>
-				<li role="presentation"><a href="#rating" id="rating-tab" role="tab" data-toggle="tab" aria-controls="rating" aria-expanded="true"><%= t("top_rate") %></a></li>
-				<li role="presentation"><a href="#imdb" role="tab" id="imdb-tab" data-toggle="tab" aria-controls="imdb" aria-expanded="false"><%= t("recent_add") %></a></li>
-			</ul>
-			<div id="myTabContent" class="tab-content">
-				<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-					<div class="w3_agile_featured_movies">
-						<%= render partial: "manga", collection: @fmangas %>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-					<%= render partial: "manga", collection: @mvmangas %>
-					<div class="clearfix"> </div>
-				</div>
-				<div role="tabpanel" class="tab-pane fade" id="rating" aria-labelledby="rating-tab">
-					<%= render partial: "manga", collection: @trmangas %>
-					<div class="clearfix"> </div>
-				</div>
-				<div role="tabpanel" class="tab-pane fade" id="imdb" aria-labelledby="imdb-tab">
-					<%= render partial: "manga", collection: @nmangas %>
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- //general -->
-<!-- Latest-tv-series -->
-<div class="Latest-tv-series">
-	<h4 class="latest-text w3_latest_text w3_home_popular"><%= t("popular") %></h4>
-	<div class="container">
-		<section class="slider">
-			<div class="flexslider">
-				<ul class="slides">
-					<%= render partial: "detail", collection: @mangas, as: :manga %>
-				</ul>
-			</div>
-		</section>
+  <div class="container">
+    <div class="w3_agile_banner_bottom_grid">
+      <div id="owl-demo" class="owl-carousel owl-theme">
+        <%= render partial: "slider", collection: @slider, as: :manga %>
+      </div>
+    </div>
   </div>
 </div>
-<!--//pop-up-box -->
-<!--
-	<div id="small-dialog" class="mfp-hide">
-		<iframe src="https://player.vimeo.com/video/164819130?title=0&byline=0"></iframe>
-	</div>
-	<div id="small-dialog1" class="mfp-hide">
-		<iframe src="https://player.vimeo.com/video/148284736"></iframe>
-	</div>
-	<div id="small-dialog2" class="mfp-hide">
-		<iframe src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
-	</div>
-	-->
-<!-- //Latest-tv-series -->
+<div class="general">
+  <h4 class="latest-text w3_latest_text"><%= t("feature_manga") %></h4>
+  <div class="container">
+    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+      <ul id="myTab" class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><%= t("featured") %></a></li>
+        <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false"><%= t("most_view") %></a></li>
+        <li role="presentation"><a href="#rating" id="rating-tab" role="tab" data-toggle="tab" aria-controls="rating" aria-expanded="true"><%= t("top_rate") %></a></li>
+        <li role="presentation"><a href="#imdb" role="tab" id="imdb-tab" data-toggle="tab" aria-controls="imdb" aria-expanded="false"><%= t("recent_add") %></a></li>
+      </ul>
+      <div id="myTabContent" class="tab-content">
+        <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+          <div class="w3_agile_featured_movies">
+            <%= render partial: "manga", collection: @fmangas %>
+            <div class="clearfix"> </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+          <%= render partial: "manga", collection: @mvmangas %>
+          <div class="clearfix"> </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="rating" aria-labelledby="rating-tab">
+          <%= render partial: "manga", collection: @trmangas %>
+          <div class="clearfix"> </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="imdb" aria-labelledby="imdb-tab">
+          <%= render partial: "manga", collection: @nmangas %>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="Latest-tv-series">
+  <h4 class="latest-text w3_latest_text w3_home_popular"><%= t("popular") %></h4>
+  <div class="container">
+    <section class="slider">
+      <div class="flexslider">
+        <ul class="slides">
+          <%= render partial: "detail", collection: @mangas, as: :manga %>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>

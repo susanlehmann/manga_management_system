@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   before_action :show_categories
 
   def home
-    @mangas = Manga.all.limit(Settings.mangas.limit).sort{|a| a.followers.count}.reverse
+    @mangas = Manga.most_followed.limit(Settings.mangas.limit)
     @slider = Manga.order("RAND()").limit(Settings.mangas.limit)
     @fmangas = Manga.all.limit(Settings.mangas.limit)
     @mvmangas = Manga.most_view.limit(Settings.mangas.limit)

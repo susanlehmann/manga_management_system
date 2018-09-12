@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_08_194038) do
+ActiveRecord::Schema.define(version: 2018_09_12_072514) do
 
   create_table "animes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -78,14 +78,12 @@ ActiveRecord::Schema.define(version: 2018_09_08_194038) do
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "manga_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "chapter_id"
     t.integer "parent_id"
-    t.index ["manga_id"], name: "index_comments_on_manga_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["chapter_id"], name: "index_comments_on_chapter_id"
   end
 
   create_table "composes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -95,6 +93,12 @@ ActiveRecord::Schema.define(version: 2018_09_08_194038) do
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_composes_on_author_id"
     t.index ["manga_id"], name: "index_composes_on_manga_id"
+  end
+
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -119,7 +123,7 @@ ActiveRecord::Schema.define(version: 2018_09_08_194038) do
     t.string "name"
     t.text "detail"
     t.integer "number_of_read", default: 0
-    t.integer "status"
+    t.integer "status", default: 0
     t.float "average_rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

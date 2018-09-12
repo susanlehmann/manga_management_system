@@ -34,40 +34,38 @@
               </ul>
             </li>
             <li><%= link_to t("all_mangas"), mangas_path %></li>
-            <li><a href="news.html">news</a></li>
+            <% if user_signed_in? && !current_user.admin? %>
+              <li><%= link_to t("follow"), following_user_path(current_user) %></li>
+            <% else %>
+              <li><%= link_to t("follow"), new_user_session_path %></li>
+            <% end %>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Country <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("list") %><b class="caret"></b></a>
               <ul class="dropdown-menu multi-column columns-3">
                 <li>
                   <div class="col-sm-4">
                     <ul class="multi-column-dropdown">
-                      <li><a href="genres.html">Asia</a></li>
-                      <li><a href="genres.html">France</a></li>
-                      <li><a href="genres.html">Taiwan</a></li>
-                      <li><a href="genres.html">United States</a></li>
+                      <li><%= link_to t("most_view"), mangas_path(scope: :most_view) %></li>
+                      <li><%= link_to t("most_follow"), mangas_path(scope: :most_followed) %></li>
                     </ul>
                   </div>
                   <div class="col-sm-4">
                     <ul class="multi-column-dropdown">
-                      <li><a href="genres.html">China</a></li>
-                      <li><a href="genres.html">HongCong</a></li>
-                      <li><a href="genres.html">Japan</a></li>
-                      <li><a href="genres.html">Thailand</a></li>
+                      <li><%= link_to t("top_rate"), mangas_path(scope: :top_rate) %></li>
+                      <li><%= link_to t("recent_add"), mangas_path(scope: :order_manga) %></li>
                     </ul>
                   </div>
                   <div class="col-sm-4">
                     <ul class="multi-column-dropdown">
-                      <li><a href="genres.html">Euro</a></li>
-                      <li><a href="genres.html">India</a></li>
-                      <li><a href="genres.html">Korea</a></li>
-                      <li><a href="genres.html">United Kingdom</a></li>
+                      <li><%= link_to t("full"), mangas_path(scope: :finished) %></li>
+                      <li><%= link_to t("continue"), mangas_path(scope: :not_finished) %></li>
                     </ul>
                   </div>
                   <div class="clearfix"></div>
                 </li>
               </ul>
             </li>
-            <li><a href="short-codes.html">Short Codes</a></li>
+            <li><%= link_to t("search"), searches_path %></li>
             <li><a href="list.html">A - z list</a></li>
           </ul>
         </nav>

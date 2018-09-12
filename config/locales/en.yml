@@ -62,10 +62,16 @@ en:
   most_view: "Most Viewed"
   top_rate: "Top Rated"
   recent_add: "Recently Added"
+  most_follow: "Most Followed"
   popular: "Most Popular Mangas"
   detail: "Detail"
   release_time: "Release Time"
   category: "Category"
+  search: "Advance Search"
+  list: "List By"
+  full: "Completed Mangas"
+  continue: "Continued Mangas"
+  follow: "Followings"
   admin:
     categories:
       index:
@@ -122,7 +128,10 @@ en:
   time:
     formats:
       dmy: "%d-%m-%Y"
-      
   comments:
     comment_form:
       comment: "comment"
+  searches:
+    index:
+      title: "Advance Search"
+      category_search: "Search by any of these categories"

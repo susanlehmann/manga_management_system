@@ -6,7 +6,7 @@
           <div class="item">
             <figure class="clearfix">
               <div class="image">
-                <!-- <img src="//st.nettruyen.com/Data/logos/logo-nettruyen.png" class="lazy" data-original="https://3.bp.blogspot.com/-U9YzPttwuiA/W3Tbu__T-FI/AAAAAAAAY4o/zY5jdHsYWnEs2NLiuzhXTZFGsP4R9vjJACHMYCw/truoc-kia-co-toa-linh-kiem-son" alt="Truyện tranh Trước Kia Có Tòa Linh Kiếm Sơn"> -->
+                <%= image_tag(manga.thumbnail.url) if manga.thumbnail.present? %>
                 <span class="icon icon-hot">
                 </span>
                 <div class="view clearfix">
@@ -18,7 +18,7 @@
               </div>
               <figcaption>
               <h3>
-              <%= link_to manga.name, manga_path(manga) %>
+              <%= link_to truncate(manga.name, length:Settings.mangas.truncate), manga_path(manga) %>
               </h3>
               </figcaption>
             </figure>
