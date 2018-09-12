@@ -5,6 +5,8 @@ categories:
 mangas:
   limit: 12
   page: 5
+  show:
+    pages: 5
 chapters:
   page: 5
 animes:

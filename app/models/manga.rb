@@ -1,6 +1,6 @@
 class Manga < ApplicationRecord
   has_one :anime
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :likes
   has_many :chapters
   has_many :composes

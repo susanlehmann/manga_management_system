@@ -12,7 +12,7 @@ class User < ApplicationRecord
   ratyrate_rater
   acts_as_voter
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :likes
   has_many :active_relationships, class_name: Relationship.name,
             foreign_key: "follower_id",

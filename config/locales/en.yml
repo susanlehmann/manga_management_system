@@ -122,3 +122,7 @@ en:
   time:
     formats:
       dmy: "%d-%m-%Y"
+      
+  comments:
+    comment_form:
+      comment: "comment"

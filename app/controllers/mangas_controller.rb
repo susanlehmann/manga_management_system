@@ -15,6 +15,9 @@ class MangasController < ApplicationController
     @chapters = @manga.chapters.order("LENGTH(name)").order(:name)
     @authors = @manga.authors.all
     @categories = @manga.categories.order(:name)
+    @supports = Supports::Manga.new @manga
+    @comment = Comment.new
+    @comments = @manga.comments.hash_tree
     Manga.increment_counter(:number_of_read, @manga.id)
   end
 
