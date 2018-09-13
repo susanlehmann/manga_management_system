@@ -10,6 +10,7 @@
         <div class="detail-info">
           <div class="row">
             <div class="col-xs-4 col-image">
+              <%= image_tag(@manga.thumbnail.url, alt: "", title: "album-name", class: "img-responsive" ) if @manga.thumbnail.present? %>
             </div>
             <div class="col-xs-8 col-info">
               <ul class="list-info">
@@ -88,15 +89,16 @@
           <h3 class="list-title">
           <i class="fa fa-file-text-o">
           </i> <%= t(".detail") %>
-          </h3>
-          <p>  <%= @manga.detail %>
-          </p>
-        </div>
+          </h3><br>
+          <h3 class="ui dividing header"></h3>
+          <p><%= @manga.detail %></p>
+        </div><br><br>
         <div class="list-chapter" id="nt_listchapter">
           <h2 class="list-title">
           <i class="fa fa-list">
           </i> <%= t(".list_chapters") %>
-          </h2>
+          </h2><br>
+          <h3 class="ui dividing header"></h3>
           <nav>
             <ul>
               <li class="row heading">
@@ -109,9 +111,20 @@
         </div>
       </article>
     </div>
+  </div><br><br>
+  <div class="ui comment">
+    <h3 class="ui dividing header">Comments</h3>
   </div>
-  <div class="comment">
-    <%= render "shared/vote_manga" %>
+  <div class="journalrow">
+    <div class="author">
+      <%= image_tag "avatar.jpg", class: "image-user" %>
+    </div>
+    <div class="journalrowitem">
+      <div class="journalrowsummary">
+        <i class="fa fa-angle-left"></i>
+        <b class="mod">Quan tri vien</b>
+      </div>
+    </div>
   </div>
   <div class="row">
     <%= render "comments/comment_form", manga: @manga, parent_id: nil %>

@@ -1,0 +1,4 @@
+<% Category.first.mangas.each do |manga| %>
+  <li><%= image_tag(manga.poster.url, alt: "") if manga.poster.present? %>
+  <p class="title"><%= manga.name %></p><p class="description"><%= truncate(manga.detail, length:Settings.mangas.detail) %></p></li>
+<% end %>

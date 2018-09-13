@@ -34,3 +34,5 @@
 /test/*
 .env
 /public/uploads/*
+/assets/images/emoji/*
+/assets/images/emoji_picker/*

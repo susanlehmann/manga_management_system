@@ -2,7 +2,7 @@ class MangasController < ApplicationController
   before_action :get_manga, only: [:show]
 
   def index
-    @mangas = Manga.order_manga
+    @mangas = Manga.order_manga.paginate page: params[:page], per_page: Settings.mangas.page
     if params[:search].present?
       @mangas = Manga.search(name_cont: params[:search]).result
       if params[:scope].present?

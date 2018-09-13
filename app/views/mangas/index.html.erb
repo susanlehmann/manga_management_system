@@ -1,4 +1,4 @@
-<h2><%= t(".mangas") %></h2>
+<h2 class="text-center"><%= t(".mangas") %></h2>
 <div class="banner-bottom">
   <div class="container">
     <div>
@@ -9,6 +9,6 @@
       <%= link_to t("full"), mangas_path(scope: :finished), class: "btn btn-primary" %>
       <%= link_to t("continue"), mangas_path(scope: :not_finished), class: "btn btn-primary" %>
     </div>
-    <%= render @mangas %>
+    <%= render "manga" %>
   </div>
 </div>

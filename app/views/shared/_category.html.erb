@@ -1,1 +1,9 @@
-<%= link_to category.name, category_path(category) %>
+<table class="change_padding_category">
+<% @categories.in_groups_of(5, false) do |row_tasks| %>
+  <tr>
+    <% for category in row_tasks %>
+      <td><%= link_to category.name, category_path(category) %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
