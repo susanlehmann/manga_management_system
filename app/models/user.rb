@@ -18,6 +18,7 @@ class User < ApplicationRecord
             foreign_key: "follower_id",
             dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
+  has_many :events
 
   scope :load_data, -> {select(:id, :name, :email, :role)}
 

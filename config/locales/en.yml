@@ -135,3 +135,8 @@ en:
     index:
       title: "Advance Search"
       category_search: "Search by any of these categories"
+  events:
+    index:
+      title: "Notifications"
+      message: "Detail"
+      time: "At"
