@@ -20,7 +20,7 @@
           </li>
           <li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'>
             <span itemprop='title'>
-              <%= link_to @chapter.name, @chapter %>
+              <%= link_to @chapter.name, manga_path(@chapter) %>
             </span>
           </li>
         </ul>
@@ -37,7 +37,7 @@
           <select class="select-chapter", onChange="if(this.selectedIndex!=0) self.location=this.options[this.selectedIndex].value">
             <option><%= t(".select_title") %></option>
             <% @chapters.each do |chapter| %>
-              <option value="<%= chapter_path(chapter) %>"><%= chapter.name %></option>
+              <option value="<%= manga_chapter_path(chapter) %>"><%= chapter.name %></option>
             <% end %>
           </select>
           <%= link_to "", @next, class: "fa fa-arrow-right" %>

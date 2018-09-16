@@ -11,4 +11,11 @@ class Chapter < ApplicationRecord
   scope :previous_chapter, -> (id){
     where("id < ?", id).order(id: :desc)
   }
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
+  def should_generate_new_friendly_id?
+    slug.blank? || name_changed?
+  end
 end

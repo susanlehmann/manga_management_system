@@ -17,16 +17,17 @@ Rails.application.routes.draw do
       end
     end
     resources :categories
-    resources :mangas, concerns: :paginatable do
-      resources :comments, only: [:create, :destroy]
+    resources :mangas, only: [:index, :show] do
+      resources :comments,only: [:create, :destroy]
       member do
         get :followers
       end
       resources :vote_mangas, only: [:create, :destroy]
+      resources :chapters, only: [:show] do
+        resources :votes,only: [:create,:destroy]
+      end
     end
-    resources :chapters do
-      resources :votes,only: [:create,:destroy]
-    end
+    get "/mangas/:manga_id/:chapter_id", to: "chapters#show"
     resources :authors
     resources :relationships, only: [:create, :destroy]
     resources :searches, only: :index

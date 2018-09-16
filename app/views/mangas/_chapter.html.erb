@@ -1,7 +1,7 @@
 <ul>
   <li class="row">
     <div class="col-xs-5 chapter">
-      <%= link_to chapter.name, chapter_path(chapter) %>
+      <%= link_to chapter.name, manga_chapter_path(chapter) %>
     </div>
     <div class="col-xs-4 text-center small"><%= l(chapter.updated_at, format: :dmy) %></div>
   </li>
