@@ -23,6 +23,7 @@
 //= require owl.carousel
 //= require magnific-popup
 //= require custom
+//= require social-share-button
 //= require jquery.raty
 //= require ratyrate
 //= require ckeditor/init
