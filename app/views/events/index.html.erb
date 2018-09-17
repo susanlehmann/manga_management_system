@@ -1,0 +1,12 @@
+<table class="table table-striped table-bordered">
+  <caption><%= t".title" %></caption>
+  <thead>
+    <tr>
+      <th><%= t".message" %></th>
+      <th><%= t".time" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @events %>
+  </tbody>
+</table>

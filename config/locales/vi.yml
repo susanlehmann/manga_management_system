@@ -136,3 +136,8 @@ vi:
     index:
       title: "Tìm kiếm nâng cao"
       category_search: "Tìm kiếm theo bất kỳ thể loại"
+  events:
+    index:
+      title: "Thông báo"
+      message: "Nội dung"
+      time: "Thời điểm"
