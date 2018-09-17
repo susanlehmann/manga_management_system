@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     root "static_pages#home"
     get "static_pages/contact"
     get "search(/:search)", to: "searches#index", as: :search
+    concern :paginatable do
+      get "(page/:page)", action: :index, on: :collection, as: ''
+    end
     devise_for :users, skip: :omniauth_callbacks,controller: {registrations: "registrations"}
     resources :users, only: [:show] do
       member do
@@ -14,8 +17,8 @@ Rails.application.routes.draw do
       end
     end
     resources :categories
-    resources :mangas do
-      resources :comments,only: [:create, :destroy]
+    resources :mangas, concerns: :paginatable do
+      resources :comments, only: [:create, :destroy]
       member do
         get :followers
       end

@@ -1,8 +1,8 @@
 <div class="item">
   <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-    <a href="" class="hvr-shutter-out-horizontal"><%= image_tag(manga.thumbnail.url, alt: " ", title: "album-name",class: "img-responsive") if manga.thumbnail.present? %>
+    <%= link_to manga_path(manga), class: "hvr-shutter-out-horizontal" do %><%= image_tag(manga.thumbnail.url, alt: " ", title: "album-name",class: "img-responsive") if manga.thumbnail.present? %>
       <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-    </a>
+    <% end %>
     <div class="mid-1 agileits_w3layouts_mid_1_home">
       <div class="w3l-movie-text">
         <h6><%= link_to truncate(manga.name, length:Settings.mangas.truncate), manga_path(manga) %></h6>
@@ -11,11 +11,7 @@
         <p><%= l(manga.created_at, format: :dmy) %></p>
         <div class="block-stars">
           <ul class="w3l-ratings">
-            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+            <li><%= rating_for manga, "rate_manga", disable_after_rate: true, readonly: true %></li>
           </ul>
         </div>
         <div class="clearfix"></div>

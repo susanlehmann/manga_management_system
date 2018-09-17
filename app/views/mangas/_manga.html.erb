@@ -1,30 +1,22 @@
-<div class="container">
+<% @mangas.in_groups_of(2, false) do |row| %>
   <div class="row">
-    <div class="center-side col-md-8">
-      <div class="items">
-        <div class="row">
-          <div class="item">
-            <figure class="clearfix">
-              <div class="image">
-                <%= image_tag(manga.thumbnail.url) if manga.thumbnail.present? %>
-                <span class="icon icon-hot">
-                </span>
-                <div class="view clearfix">
-                  <span class="pull-left">
-                    <i class="fa fa-eye">
-                    </i> <%= manga.number_of_read %> <i class="fa fa-heart"></i> <%= manga.followers.count %>
-                  </span>
-                </div>
-              </div>
-              <figcaption>
-              <h3>
-              <%= link_to truncate(manga.name, length:Settings.mangas.truncate), manga_path(manga) %>
-              </h3>
-              </figcaption>
-            </figure>
+    <% for manga in row %>
+      <div class="column">
+        <div class="image">
+          <%= image_tag(manga.thumbnail.url,size: "450x600") if manga.thumbnail.present? %>
+          <span class="icon icon-hot"></span>
+          <div class="view clearfix">
+            <span class="pull-left">
+              <i class="fa fa-eye"></i><%= manga.number_of_read %>
+              <i class="fa fa-heart"></i> <%= manga.followers.count %>
+            </span>
           </div>
         </div>
+        <figcaption>
+        <h3><%= link_to manga.name, manga_path(manga) %></h3>
+        </figcaption>
       </div>
-    </div>
+    <% end %>
   </div>
-</div>
+<% end %>
+<%= will_paginate @mangas %>

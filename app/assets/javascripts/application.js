@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require rails_emoji_picker
 //= require popper
 //= require jquery-ui
 //= require jquery_ujs

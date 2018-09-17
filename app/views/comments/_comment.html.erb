@@ -1,22 +1,31 @@
-<div class="form-comment<%= @manga.id %>">
-  <div class="row">
-    <div class="col-md-1">
-      <%= image_tag "avatar.jpg", class: "image-user" %>
-    </div>
-    <div class="col-md-11">
-      <%= link_to comment.user.name, user_path(comment.user_id) %>:
-      <span class"timestamp">
-        <%= comment.created_at %>
-      </span></br>
-      <p><%= comment.content %></p>
-      <%= link_to t("mangas.show.delete"), manga_comment_path(@manga, comment), method: :delete,
-        data: {confirm: t("mangas.show.sure")} %>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="panel panel-white post panel-shadow">
+      <div class="post-heading">
+        <div class="pull-left image">
+          <%= image_tag "avatar.jpg", class: "image-user" %>
+        </div>
+        <div class="pull-left meta">
+          <div class="title h5">
+            <%= link_to comment.user.name, user_path(comment.user_id) %>
+          </div>
+          <h6 class="text-muted time"><%= comment.created_at %></h6>
+        </div>
+      </div>
+      <div class="post-description">
+        <p><%= comment.content %></p>
+        <%= link_to t("mangas.show.delete"), manga_comment_path(@manga, comment), method: :delete,
+        data: {confirm: t("mangas.show.sure")}, class: "btn btn-danger left-btn" %>
+        <button type="button" class="btn btn-primary left-btn" id="reply-<%= comment.id %>"><% t ".reply" %></button>
+        <div class="stats">
+          <%= render "shared/vote_manga" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-1">
+  <div class="col-md-offset-1" id="reply-comment-<%= comment.id %>">
     <%= render "comments/comment_form", manga: manga, parent_id: comment.id, comment_new: Comment.new %>
   </div>
 </div>

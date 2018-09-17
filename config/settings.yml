@@ -8,6 +8,7 @@ mangas:
   show:
     pages: 5
   truncate: 10
+  detail: 100
   most_view: "most_view"
   top_rate: "top_rate"
   finished: "finished"

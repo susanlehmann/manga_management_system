@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_16_124335) do
+ActiveRecord::Schema.define(version: 2018_09_10_120919) do
 
-  create_table "animes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "animes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name"
     t.bigint "manga_id"
     t.datetime "published_at"
@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.index ["manga_id"], name: "index_animes_on_manga_id"
   end
 
-  create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "average_caches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "average_caches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "rater_id"
     t.string "rateable_type"
     t.bigint "rateable_id"
@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.index ["rater_id"], name: "index_average_caches_on_rater_id"
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name"
     t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "chapters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "chapters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "manga_id"
     t.string "name"
     t.text "images"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.index ["manga_id"], name: "index_chapters_on_manga_id"
   end
 
-  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
     t.integer "data_file_size"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
-  create_table "comment_hierarchies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "comment_hierarchies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.integer "ancestor_id", null: false
     t.integer "descendant_id", null: false
     t.integer "generations", null: false
@@ -77,16 +77,18 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.index ["descendant_id"], name: "comment_desc_idx"
   end
 
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "manga_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "manga_id"
-    t.integer "user_id"
     t.integer "parent_id"
+    t.index ["manga_id"], name: "index_comments_on_manga_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "composes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "composes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "author_id"
     t.bigint "manga_id"
     t.datetime "created_at", null: false
@@ -102,7 +104,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.integer "recipient_id"
   end
 
-  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "manga_id"
     t.datetime "created_at", null: false
@@ -111,7 +113,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "manga_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "manga_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "manga_id"
     t.bigint "category_id"
     t.datetime "created_at", null: false
@@ -120,7 +122,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.index ["manga_id"], name: "index_manga_categories_on_manga_id"
   end
 
-  create_table "mangas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "mangas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name"
     t.text "detail"
     t.integer "number_of_read", default: 0
@@ -133,7 +135,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.string "country"
   end
 
-  create_table "overall_averages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "overall_averages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "rateable_type"
     t.bigint "rateable_id"
     t.float "overall_avg", null: false
@@ -143,7 +145,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.index ["rateable_type", "rateable_id"], name: "index_overall_averages_on_rateable_type_and_rateable_id"
   end
 
-  create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "rater_id"
     t.string "rateable_type"
     t.bigint "rateable_id"
@@ -156,7 +158,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.index ["rater_id"], name: "index_rates_on_rater_id"
   end
 
-  create_table "rating_caches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "rating_caches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "cacheable_type"
     t.bigint "cacheable_id"
     t.float "avg", null: false
@@ -168,7 +170,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.index ["cacheable_type", "cacheable_id"], name: "index_rating_caches_on_cacheable_type_and_cacheable_id"
   end
 
-  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
     t.datetime "created_at", null: false
@@ -196,7 +198,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.index ["target_type", "target_id"], name: "index_subscriptions_on_target_type_and_target_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name"
     t.integer "phone"
     t.integer "gender"
@@ -220,7 +222,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "votable_type"
     t.bigint "votable_id"
     t.string "voter_type"

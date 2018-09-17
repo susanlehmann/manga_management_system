@@ -109,6 +109,8 @@ en:
       updating: "Updating"
       first_chapter: "Read first chapter"
       last_chapter: "Read lastest chapter"
+      reply: "Reply"
+      delete: "Delete"
     follow:
       followed: "Followed by"
       users: "users"

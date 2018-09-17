@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     else
       @comment = Comment.new comment_params
     end
-    
+
     if @comment.save
       respond_to do |format|
         format.html{redirect_back(fallback_location: root_path)}
