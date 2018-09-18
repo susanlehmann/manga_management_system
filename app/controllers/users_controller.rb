@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show; end
 
   def following
-    @mangas = @user.following
+    @mangas = @user.following.paginate page: params[:page], per_page: Settings.mangas.page
     render :show_follow
   end
 

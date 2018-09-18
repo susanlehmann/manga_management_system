@@ -4,6 +4,6 @@
       <ul class='breadcrumb'><li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'><span itemprop='title'><%= link_to t("home"), root_path %></span></li><li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'><span itemprop='title'><%= link_to t("categories"), categories_path %></span></li><li itemscope itemtype='http://data-vocabulary.org/Breadcrumb'><span itemprop='title'><%= link_to @category.name, @category %></span></li></ul>
     </div>
   </div>
+  <h2><%= @category.name %></h2>
+  <%= render partial: "mangas/manga" %>
 </div>
-<h2><%= @category.name %></h2>
-  <%= render partial: "shared/manga", collection: @mangas %>

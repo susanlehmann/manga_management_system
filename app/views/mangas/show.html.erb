@@ -17,7 +17,7 @@
                 <li class="author row">
                   <p class="name col-xs-4">
                     <i class="fa fa-user">
-                    </i> <%= t(".author") %>
+                    </i> <%= t(".author") %>:
                   </p>
                   <% if @manga.authors.nil? %>
                     <p class="col-xs-8"><%= t(".updating") %></p>
@@ -28,21 +28,21 @@
                 <li class="status row">
                   <p class="name col-xs-4">
                     <i class="fa fa-rss">
-                    </i> <%= t(".status") %>
+                    </i> <%= t(".status") %>:
                   </p>
                   <p class="col-xs-8"><%= @manga.status %></p>
                 </li>
                 <li class="kind row">
                   <p class="name col-xs-4">
                     <i class="fa fa-tags">
-                    </i> <%= t(".category") %>
+                    </i> <%= t(".category") %>:
                   </p>
-                  <p class="col-xs-8"><%= render partial: "shared/category", collection: @categories %></p>
+                  <p class="col-xs-8"><%= render partial: "category", collection: @categories %></p>
                 </li>
                 <li class="row">
                   <p class="name col-xs-4">
                     <i class="fa fa-eye">
-                    </i> <%= t(".view") %>
+                    </i> <%= t(".view") %>:
                   </p>
                   <p class="col-xs-8"><%= @manga.number_of_read %></p>
                 </li>
@@ -77,12 +77,12 @@
                 </div>
                 <% end %>
               </div>
-              <% if @chapters.present? %>
-                <div class="read-action mrt10">
-                  <%= link_to t(".first_chapter"), chapter_path(@chapters.first), class: "btn btn-warning mrb5" %>
-                  <%= link_to t(".last_chapter"), chapter_path(@chapters.last), class: "btn btn-warning mrb5" %>
-                </div>
-              <% end %>
+                <% if @chapters.present? %>
+                  <div class="read-action mrt10">
+                    <%= link_to t(".first_chapter"), chapter_path(@chapters.last), class: "btn btn-warning mrb5" %>
+                    <%= link_to t(".last_chapter"), chapter_path(@chapters.first), class: "btn btn-warning mrb5" %>
+                  </div>
+                <% end %>
             </div>
           </div>
         </div>

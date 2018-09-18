@@ -101,7 +101,7 @@ en:
       status: "Status"
       category: "Category"
       view: "Number of Views"
-      rate: "Rating"
+      rate: "Avg. Rating"
       detail: "Detail"
       list_chapters: "Chapters List"
       num_chapters: "Chapters"
@@ -109,8 +109,7 @@ en:
       updating: "Updating"
       first_chapter: "Read first chapter"
       last_chapter: "Read lastest chapter"
-      reply: "Reply"
-      delete: "Delete"
+      comment: "Comment"
     follow:
       followed: "Followed by"
       users: "users"
@@ -131,6 +130,9 @@ en:
     formats:
       dmy: "%d-%m-%Y"
   comments:
+    comment:
+      reply: "Reply"
+      delete: "Delete"
     comment_form:
       comment: "comment"
   searches:
