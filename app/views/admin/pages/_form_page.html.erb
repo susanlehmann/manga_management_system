@@ -1,0 +1,20 @@
+<%= form_for [:admin, @page] do |f| %>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="block-section">
+        <h3><%= t("chapter") %></h3>
+        <ul class="list-cat">
+          <%= f.grouped_collection_select(:chapter_id, Manga.all, :chapters, :name, :id, :name) %>
+        </ul>
+      </div>
+      <div class="block-section">
+        <h3><%= t("page") %></h3>
+        <%= f.file_field :image %>
+        <%#= image_tag @page.image_url, class: "preview" if @page.image? %>
+      </div>
+      <div class="block-section">
+        <%= f.submit yield(:btn_title), class: "btn btn-default" %>
+      </div>
+    </div>
+  </div>
+<% end %>

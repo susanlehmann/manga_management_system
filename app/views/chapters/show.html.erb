@@ -24,12 +24,11 @@
             </span>
           </li>
         </ul>
-        <h1 class='txt-primary'><%= link_to @chapter.manga.name, manga_path(@chapter.manga) %> <span>- <%= @chapter.name %></span></h1><i><%= t(".updated_at") %> : <%= @chapter.updated_at.strftime("%d-%m-%Y") %></i>
+        <h1 class="txt-primary"><%= link_to @chapter.manga.name, manga_path(@chapter.manga) %> <span>- <%= @chapter.name %></span></h1><i><%= t(".updated_at") %> : <%= @chapter.updated_at.strftime("%d-%m-%Y") %></i>
       </div>
       <div class="reading-control">
-        <span class='chapter-id hidden'></span>
         <div class="alert alert-info mrb10 hidden-xs hidden-sm">
-          <i class="fa fa-info-circle"></i> <em><%= t(".info") %></em>
+          <div class="info-center"><i class="fa fa-info-circle"></i> <em><%= t(".info") %></em></div>
         </div>
         <div class="chapter-nav">
           <%= link_to "", root_path, class: "fa fa-home" %>
@@ -45,8 +44,8 @@
       </div>
     </div>
     <div class="reading-detail box_doc">
-      <% if @chapter.images.present? %>
-        <div><%= image_tag(@chapter.images.url) %></div>
+      <% if @chapter.pages.present? %>
+        <div><%= render "page" %></div>
       <% else %>
         <div><%= @chapter.content %></div>
       <% end %>

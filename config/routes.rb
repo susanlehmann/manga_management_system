@@ -37,6 +37,7 @@ Rails.application.routes.draw do
       resources :categories
       resources :mangas
       resources :chapters
+      resources :pages
       resources :animes
       resources :users do
         collection do
