@@ -4,9 +4,9 @@ class MangasController < ApplicationController
   def index
     @mangas = Manga.order_manga.paginate page: params[:page], per_page: Settings.mangas.page
     if params[:search].present?
-      @mangas = Manga.search(name_cont: params[:search]).result
+      @mangas = Manga.search(name_cont: params[:search]).result.paginate page: params[:page], per_page: Settings.mangas.page
       if params[:scope].present?
-        check_scope.search(name_cont: params[:search]).result
+        check_scope.search(name_cont: params[:search]).result.paginate page: params[:page], per_page: Settings.mangas.page
       end
     else
       if params[:scope].present?
@@ -34,17 +34,17 @@ class MangasController < ApplicationController
   def check_scope
     @mangas = case params[:scope]
     when Settings.mangas.most_view
-      Manga.most_view
+      Manga.most_view.paginate page: params[:page], per_page: Settings.mangas.page
     when Settings.mangas.top_rate
-      Manga.top_rate
+      Manga.top_rate.paginate page: params[:page], per_page: Settings.mangas.page
     when Settings.mangas.finished
-      Manga.finished.order(:name)
+      Manga.finished.order(:name).paginate page: params[:page], per_page: Settings.mangas.page
     when Settings.mangas.not_finished
-      Manga.not_finished.order(:name)
+      Manga.not_finished.order(:name).paginate page: params[:page], per_page: Settings.mangas.page
     when Settings.mangas.most_followed
-      Manga.most_followed
+      Manga.most_followed.paginate page: params[:page], per_page: Settings.mangas.page
     else
-      Manga.order_manga
+      Manga.order_manga.paginate page: params[:page], per_page: Settings.mangas.page
     end
   end
 end

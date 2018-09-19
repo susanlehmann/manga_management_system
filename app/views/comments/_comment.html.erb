@@ -14,9 +14,9 @@
       </div>
       <div class="post-description">
         <p><%= comment.content %></p>
-        <%= link_to t("mangas.show.delete"), manga_comment_path(@manga, comment), method: :delete,
+        <%= link_to t(".delete"), manga_comment_path(@manga, comment), method: :delete,
         data: {confirm: t("mangas.show.sure")}, class: "btn btn-danger left-btn" %>
-        <button type="button" class="btn btn-primary left-btn" id="reply-<%= comment.id %>"><% t ".reply" %></button>
+        <button type="button" class="btn btn-primary left-btn" id="reply-<%= comment.id %>"><%= t".reply" %></button>
         <div class="stats">
           <%= render "shared/vote_manga" %>
         </div>

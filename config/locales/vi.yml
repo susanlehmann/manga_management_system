@@ -101,7 +101,7 @@ vi:
       status: "Tình trạng"
       category: "Thể loại"
       view: "Số lượt xem"
-      rate: "Đánh gía"
+      rate: "Đánh gía trung bình"
       detail: "Nội dung"
       list_chapters: "Danh sách chương"
       num_chapters: "Số chương"
@@ -109,6 +109,7 @@ vi:
       updating: "Đang cập nhật"
       first_chapter: "Đọc tập đầu"
       last_chapter: "Đọc tập mới nhất"
+      comment: "Bình luận"
     follow:
       followed: "Được theo dõi bởi"
       users: "người dùng"
@@ -124,14 +125,17 @@ vi:
       select_title: "Chọn một tập"
   authors:
     show:
-      author: "Author"
+      author: "Tác gỉa"
   time:
     formats:
       dmy: "%d-%m-%Y"
       author: "Tác gỉa"
   comments:
+    comment:
+      reply: "Trả lời"
+      delete: "Xóa"
     comment_form:
-      comment: "comment"
+      comment: "Bình luận"
   searches:
     index:
       title: "Tìm kiếm nâng cao"

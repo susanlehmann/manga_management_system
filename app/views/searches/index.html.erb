@@ -1,11 +1,17 @@
-<h2><%= t(".title") %></h2>
-<div>
+<div class="container">
+  <h2><%= t(".title") %></h2>
   <%= search_form_for @q , url: mangas_path do %>
     <div><%= label_tag t(".category_search") %>:</div>
-    <% Category.order(:name).each do |category| %>
-      <%= check_box_tag('q[categories_id_eq_any][]', category.id, false, :id => "q[categories_id_eq_any]_#{category.id}") %>
-      <%= category.name %>
-    <% end %>
+      <table>
+        <% @categories.in_groups_of(10, false) do |row| %>
+          <tr>
+            <% for category in row %>
+              <td><%= check_box_tag('q[categories_id_eq_any][]', category.id, false, :id => "q[categories_id_eq_any]_#{category.id}") %>
+              <%= category.name %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
     <%= button_tag type: :submit, class: "btn btn-default" do %>
       <i class="fa fa-search"></i>
     <% end %>

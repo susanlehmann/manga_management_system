@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @mangas = @category.mangas.order(:name)
+    @mangas = @category.mangas.order(:name).paginate page: params[:page], per_page: Settings.mangas.page
   end
 
   private
