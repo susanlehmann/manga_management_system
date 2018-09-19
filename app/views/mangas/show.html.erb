@@ -65,6 +65,7 @@
                 <span itemprop="name"><%= @manga.name %> | </span>
                 <%= t(".rate") %>: <span itemprop="ratingValue"><%= number_with_precision(@manga.avg_rating_dimension_rate_manga(@manga), precision: 1) %></span><meta itemprop="bestRating" content="5"><meta itemprop="worstRating" content="1">
               </div>
+              <div><%= social_share_button_tag @manga.name, desc: @manga.detail %></div>
               <div class="follow">
                 <% if user_signed_in? %>
                 <div id="follow_form">
@@ -76,12 +77,12 @@
                 </div>
                 <% end %>
               </div>
-                <% if @chapters.present? %>
-                  <div class="read-action mrt10">
-                    <%= link_to t(".first_chapter"), chapter_path(@chapters.first), class: "btn btn-warning mrb5" %>
-                    <%= link_to t(".last_chapter"), chapter_path(@chapters.last), class: "btn btn-warning mrb5" %>
-                  </div>
-                <% end %>
+              <% if @chapters.present? %>
+                <div class="read-action mrt10">
+                  <%= link_to t(".first_chapter"), chapter_path(@chapters.first), class: "btn btn-warning mrb5" %>
+                  <%= link_to t(".last_chapter"), chapter_path(@chapters.last), class: "btn btn-warning mrb5" %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_10_120919) do
+ActiveRecord::Schema.define(version: 2018_09_16_124335) do
 
   create_table "animes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name"
@@ -97,11 +97,23 @@ ActiveRecord::Schema.define(version: 2018_09_10_120919) do
     t.index ["manga_id"], name: "index_composes_on_manga_id"
   end
 
-  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "recipient_id"
+  end
+
+  create_table "friendly_id_slugs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
@@ -133,6 +145,8 @@ ActiveRecord::Schema.define(version: 2018_09_10_120919) do
     t.string "poster"
     t.string "thumbnail"
     t.string "country"
+    t.string "slug"
+    t.index ["slug"], name: "index_mangas_on_slug"
   end
 
   create_table "overall_averages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
@@ -178,24 +192,6 @@ ActiveRecord::Schema.define(version: 2018_09_10_120919) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
-  end
-
-  create_table "subscriptions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "target_type", null: false
-    t.bigint "target_id", null: false
-    t.string "key", null: false
-    t.boolean "subscribing", default: true, null: false
-    t.boolean "subscribing_to_email", default: true, null: false
-    t.datetime "subscribed_at"
-    t.datetime "unsubscribed_at"
-    t.datetime "subscribed_to_email_at"
-    t.datetime "unsubscribed_to_email_at"
-    t.text "optional_targets"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["key"], name: "index_subscriptions_on_key"
-    t.index ["target_type", "target_id", "key"], name: "index_subscriptions_on_target_type_and_target_id_and_key", unique: true
-    t.index ["target_type", "target_id"], name: "index_subscriptions_on_target_type_and_target_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|

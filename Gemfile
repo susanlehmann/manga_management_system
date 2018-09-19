@@ -40,6 +40,7 @@ gem "ratyrate", github: "wazery/ratyrate"
 gem "closure_tree"
 gem "acts_as_votable", "~> 0.10.0"
 gem "rails_emoji_picker"
+gem "social-share-button"
 if Gem.win_platform?
   gem "wdm", ">= 0.1.0"
 end
