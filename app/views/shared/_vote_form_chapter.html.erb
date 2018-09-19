@@ -1,11 +1,11 @@
 <div id="vote_form">
   <% if user_signed_in? %>
     <% if (current_user.voted_down_on? @chapter) || (!ActsAsVotable::Vote.where(voter_id: current_user,votable_id: @chapter.id).present?) %>
-      <%= link_to chapter_votes_path(@chapter), method: :post, remote: true do %>
+      <%= link_to manga_chapter_votes_path(@chapter), method: :post, remote: true do %>
         <span class="glyphicon glyphicon-heart-empty"></span>
       <% end %>
     <% else %>
-      <%= link_to chapter_vote_path(@chapter,0), method: :delete, remote: true do %>
+      <%= link_to manga_chapter_vote_path(@chapter,0), method: :delete, remote: true do %>
         <span class="glyphicon glyphicon-heart"></span>
       <% end %>
     <% end %>

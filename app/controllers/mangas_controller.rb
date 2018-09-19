@@ -27,10 +27,8 @@ class MangasController < ApplicationController
 
   private
   def get_manga
-    @manga = Manga.find_by id: params[:id]
-    if @manga.nil?
-      redirect_to root_url
-    end
+    @manga = Manga.friendly.find(params[:id])
+    redirect_to root_url unless @manga
   end
 
   def check_scope

@@ -20,6 +20,9 @@ class Manga < ApplicationRecord
   ratyrate_rateable "rate_manga", "rate_chapter"
   acts_as_votable
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   mount_uploader :thumbnail, ThumbnailUploader
   mount_uploader :poster, ThumbnailUploader
 
@@ -37,5 +40,9 @@ class Manga < ApplicationRecord
     star_count = stars.count
     stars_total = stars.inject(0){|sum,x| sum + x }
     score = stars_total / (star_count.nonzero? || 1)
+  end
+
+  def should_generate_new_friendly_id?
+    slug.blank? || name_changed?
   end
 end

@@ -170,6 +170,8 @@ GEM
     flex-slider-rails (2.7.0)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
+    friendly_id (5.2.4)
+      activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     glyphicons-rails (0.1.2)
@@ -370,6 +372,7 @@ DEPENDENCIES
   dotenv-rails
   flex-slider-rails
   font-awesome-rails
+  friendly_id (~> 5.2.0)
   glyphicons-rails
   jbuilder (~> 2.5)
   jquery-dotdotdot-rails

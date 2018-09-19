@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_16_124335) do
+ActiveRecord::Schema.define(version: 2018_09_17_141208) do
 
   create_table "animes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name"
@@ -54,7 +54,9 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["manga_id"], name: "index_chapters_on_manga_id"
+    t.index ["slug"], name: "index_chapters_on_slug"
   end
 
   create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
@@ -146,7 +148,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_124335) do
     t.string "thumbnail"
     t.string "country"
     t.string "slug"
-    t.index ["slug"], name: "index_mangas_on_slug"
+    t.index ["slug"], name: "index_mangas_on_slug", unique: true
   end
 
   create_table "overall_averages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
