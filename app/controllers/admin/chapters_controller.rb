@@ -53,7 +53,7 @@ class Admin::ChaptersController < Admin::AdminController
   end
 
   def find_chapter
-    @chapter =Chapter.find_by id: params[:id]
+    @chapter = Chapter.friendly.find params[:id]
     redirect_to admin_chapters_path if @chapter.nil?
   end
 end

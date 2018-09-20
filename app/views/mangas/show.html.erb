@@ -127,9 +127,10 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" id="show-coment-manga">
     <%= render "comments/comment_form", manga: @manga, parent_id: nil %>
     <%= comments_tree_for @supports.comments_tree.hash_tree(limit_depth: Settings.mangas.show.pages),
       @manga, @supports.comments_tree %>
+
   </div>
 </div>

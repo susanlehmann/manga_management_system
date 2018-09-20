@@ -14,9 +14,17 @@ class Chapter < ApplicationRecord
   }
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: [:finders, :slugged]
 
   def should_generate_new_friendly_id?
-    slug.blank? || name_changed?
+    name_changed? || super
+  end
+
+  def next
+    Chapter.where("id > ?", id).order(id: :asc).first
+  end
+
+  def prev
+    Chapter.where("id < ?", id).order(id: :asc).last
   end
 end

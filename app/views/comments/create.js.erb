@@ -1,3 +1,3 @@
-$('#form-comment<%= @comment.manga_id %>').append("<%= j render(@comment) %>");
+$('#show-coment-manga').append("<%= j render @comment, manga: @manga %>");
 $('#form-comment form textarea').val('');
 $("#flash").html('<%= j render partial: "flash_messages", flash: flash %>');

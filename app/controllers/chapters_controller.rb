@@ -10,7 +10,7 @@ class ChaptersController < ApplicationController
 
   private
   def get_chapter
-    @chapter = Chapter.friendly.find(params[:chapter_id])
+    @chapter = Chapter.friendly.find params[:id]
     redirect_to root_url unless @chapter
   end
 end

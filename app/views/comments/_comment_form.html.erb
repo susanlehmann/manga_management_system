@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <span class="form-comment">
-    <%= form_for [@manga, @comment], html: {id: "new_comment_#{parent_id}"} do |f| %>
+    <%= form_for [@manga, @comment], remote: true, html: {id: "new_comment_#{parent_id}"} do |f| %>
       <%= f.hidden_field :parent_id, value: parent_id, id: "parent_#{parent_id}" %>
       <%= f.hidden_field :manga_id, value: @manga.id, id: "manga_#{parent_id}" %>
       <%= f.hidden_field :user_id, value: current_user.id, id: "user_#{parent_id}" %>
