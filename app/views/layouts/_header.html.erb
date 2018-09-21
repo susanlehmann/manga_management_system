@@ -51,7 +51,7 @@
           </ul>
         </li>
         <% unless user_signed_in? %>
-          <li><a href="#" data-toggle="modal" data-target="#myModal"><%= t(".signin") %></a></li>
+          <li><a href="#" data-toggle="modal" data-target="#myModal" class="define_color"><%= t(".signin") %></a></li>
         <% else %>
           <li class="btn-group">
             <button type="button" class="btn"><%= t".account" %></button>
