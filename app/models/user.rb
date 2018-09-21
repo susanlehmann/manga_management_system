@@ -11,6 +11,7 @@ class User < ApplicationRecord
   after_initialize :set_default_role, if: :new_record?
   ratyrate_rater
   acts_as_voter
+  acts_as_paranoid
 
   has_many :comments, dependent: :destroy
   has_many :likes

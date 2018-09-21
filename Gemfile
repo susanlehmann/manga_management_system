@@ -42,6 +42,7 @@ gem "acts_as_votable", "~> 0.10.0"
 gem "rails_emoji_picker"
 gem "social-share-button"
 gem "friendly_id", "~> 5.2.0", require: "friendly_id"
+gem "paranoia"
 if Gem.win_platform?
   gem "wdm", ">= 0.1.0"
 end

@@ -19,6 +19,7 @@ class Manga < ApplicationRecord
   scope :most_followed, -> {joins(:followers).group("mangas.id").order("count(*) desc")}
   ratyrate_rateable "rate_manga", "rate_chapter"
   acts_as_votable
+  acts_as_paranoid
 
   extend FriendlyId
   friendly_id :name, use: :slugged
