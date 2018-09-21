@@ -19,6 +19,7 @@
  *= require jquery.slidey.min
  *= require medile
  *= require news
+ *= require toastr
  *= require popup-box
  *= require single
  *= require style
@@ -30,3 +31,4 @@
  @import "livesearch";
  @import "rails_emoji_picker";
  @import "social-share-button";
+ @import "toastr";

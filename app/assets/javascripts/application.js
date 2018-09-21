@@ -19,6 +19,7 @@
 //= require jquery.dotdotdot
 //= require jquery.flexslider-min
 //= require jquery.slidey
+//= require toastr
 //= require easing
 //= require owl.carousel
 //= require magnific-popup
