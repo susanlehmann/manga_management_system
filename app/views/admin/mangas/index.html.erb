@@ -14,7 +14,7 @@
       <td><%= manga.name %></td>
       <td>
         <% manga.categories.each do |cat| %>
-          <%= link_to cat.name, admin_category_path(cat) %>
+          <%= link_to cat.name, admin_categories_path %>
         <% end %>
       </td>
       <td>

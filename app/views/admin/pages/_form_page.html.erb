@@ -10,7 +10,7 @@
       <div class="block-section">
         <h3><%= t("page") %></h3>
         <%= f.file_field :image %>
-        <%#= image_tag @page.image_url, class: "preview" if @page.image? %>
+        <%= image_tag @page.image_url, class: "preview" if @page.image? %>
       </div>
       <div class="block-section">
         <%= f.submit yield(:btn_title), class: "btn btn-default" %>
