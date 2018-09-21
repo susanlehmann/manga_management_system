@@ -165,6 +165,14 @@ ActiveRecord::Schema.define(version: 2018_09_21_084108) do
     t.index ["rateable_type", "rateable_id"], name: "index_overall_averages_on_rateable_type_and_rateable_id"
   end
 
+  create_table "pages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.bigint "chapter_id"
+    t.text "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chapter_id"], name: "index_pages_on_chapter_id"
+  end
+
   create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "rater_id"
     t.string "rateable_type"
@@ -244,4 +252,5 @@ ActiveRecord::Schema.define(version: 2018_09_21_084108) do
 
   add_foreign_key "manga_categories", "categories"
   add_foreign_key "manga_categories", "mangas"
+  add_foreign_key "pages", "chapters"
 end

@@ -79,8 +79,8 @@
               </div>
                 <% if @chapters.present? %>
                   <div class="read-action mrt10">
-                    <%= link_to t(".first_chapter"), chapter_path(@chapters.last), class: "btn btn-warning mrb5" %>
-                    <%= link_to t(".last_chapter"), chapter_path(@chapters.first), class: "btn btn-warning mrb5" %>
+                    <%= link_to t(".first_chapter"), manga_chapter_path(@chapters.last), class: "btn btn-warning mrb5" %>
+                    <%= link_to t(".last_chapter"), manga_chapter_path(@chapters.first), class: "btn btn-warning mrb5" %>
                   </div>
                 <% end %>
             </div>
