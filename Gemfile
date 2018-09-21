@@ -43,6 +43,7 @@ gem "rails_emoji_picker"
 gem "social-share-button"
 gem "friendly_id", "~> 5.2.0", require: "friendly_id"
 gem "paranoia"
+gem "toastr-rails"
 if Gem.win_platform?
   gem "wdm", ">= 0.1.0"
 end

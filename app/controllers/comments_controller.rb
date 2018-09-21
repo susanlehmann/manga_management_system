@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.html{redirect_back(fallback_location: root_path)}
-        format.js
+        format.js{flash.now[:success] = t(".success_comment")}
       end
     end
   end
