@@ -36,4 +36,9 @@ class ApplicationController < ActionController::Base
     controller_namespace = controller_name_segments.join('/').camelize
     Ability.new(current_user, controller_namespace)
   end
+
+  def after_sign_in_path_for resource
+    return admin_root_path if resource.admin?
+    return root_path unless resource.admin?
+  end
 end

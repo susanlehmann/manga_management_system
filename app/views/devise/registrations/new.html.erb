@@ -1,28 +1,28 @@
-<div class="container_fullwidth">
+<div class="container">
   <h2>Sign up</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :name %><br/>
-      <%= f.text_field :name,id: "name_registration" %>
+      <%= f.text_field :name,id: "name_registration", class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :email %><br/>
-      <%= f.email_field :email,id: "email_registration", autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email,id: "email_registration", autofocus: true, autocomplete: "email", class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :password %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password,id: "pass_registration", autocomplete: "off" %>
+      <%= f.password_field :password,id: "pass_registration", autocomplete: "off", class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :password_confirmation %><br/>
-      <%= f.password_field :password_confirmation,id: "pass_conf_registration", autocomplete: "off" %>
+      <%= f.password_field :password_confirmation,id: "pass_conf_registration", autocomplete: "off", class: "form-control" %>
     </div>
-    <div class="actions">
-      <%= f.submit "Sign up" %>
+    <div class="form-group">
+      <%= f.submit "Sign up", class: "btn btn-success btn-block" %>
     </div>
   <% end %>
   <%= render "devise/shared/links" %>
