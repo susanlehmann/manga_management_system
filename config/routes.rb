@@ -23,11 +23,8 @@ Rails.application.routes.draw do
         get :followers
       end
       resources :vote_mangas, only: [:create, :destroy]
-      resources :chapters, only: [:show] do
-        resources :votes,only: [:create,:destroy]
-      end
+      resources :chapters, only: [:show]
     end
-    get "/mangas/:manga_id/:chapter_id", to: "chapters#show"
     resources :authors
     resources :relationships, only: [:create, :destroy]
     resources :searches, only: :index
