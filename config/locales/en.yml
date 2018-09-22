@@ -71,6 +71,8 @@ en:
   list: "List By"
   full: "Completed Mangas"
   continue: "Continued Mangas"
+  hot_week: "Top Week"
+  hot_month: "Top Month"
   follow: "Followings"
   admin:
     categories:

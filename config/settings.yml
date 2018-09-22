@@ -14,6 +14,9 @@ mangas:
   finished: "finished"
   not_finished: "not_finished"
   most_followed: "most_followed"
+  by_week: "hot_manga_by_time"
+  by_month: "hot_manga_by_time"
+  view_limit: 100
 chapters:
   page: 5
 animes:

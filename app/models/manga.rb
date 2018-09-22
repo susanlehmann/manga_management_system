@@ -11,12 +11,14 @@ class Manga < ApplicationRecord
                                    foreign_key: "followed_id",
                                    dependent:   :destroy
   has_many :followers, through: :passive_relationships, source: :follower
-  enum status: {not_finished: 0, finished: 1}
+  enum status: {continue: 0, finished: 1}
 
   scope :order_manga, -> {order created_at: :desc}
   scope :most_view, -> {order number_of_read: :desc}
   scope :top_rate, -> {includes(:rate_average_without_dimension).order("rating_caches.avg desc")}
   scope :most_followed, -> {joins(:followers).group("mangas.id").order("count(*) desc")}
+  scope :not_finished, -> {where status: 0}
+  scope :hot_manga_by_time, -> (time){where("created_at > ? AND number_of_read > ?", Time.now - time, Settings.mangas.view_limit)}
   ratyrate_rateable "rate_manga", "rate_chapter"
   acts_as_votable
   acts_as_paranoid
@@ -45,5 +47,13 @@ class Manga < ApplicationRecord
 
   def should_generate_new_friendly_id?
     name_changed? || super
+  end
+
+  def check_manga?
+    if created_at > Time.now - 1.week.ago
+      "new"
+    elsif number_of_read > Settings.mangas.view_limit
+      "hot"
+    end
   end
 end
