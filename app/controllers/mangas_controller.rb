@@ -3,10 +3,21 @@ class MangasController < ApplicationController
 
   def index
     @mangas = Manga.order_manga.paginate page: params[:page], per_page: Settings.mangas.page
-    if params[:search].present?
+    if params[:q].present?
+      @q = Manga.search(params[:q])
+      @mangas = @q.result(distinct: true).paginate page: params[:page], per_page: Settings.mangas.page
+      if params[:scope].present?
+        check_scope.search(params[:q]).result(distinct: true)
+      elsif params[:search].present?
+        @mangas = @q.search(name_cont: params[:search]).result(distinct: true).paginate page: params[:page], per_page: Settings.mangas.page
+        if params[:scope].present?
+          check_scope.search(params[:q]).search(name_cont: params[:search]).result(distinct: true)
+        end
+      end
+    elsif params[:search].present?
       @mangas = Manga.search(name_cont: params[:search]).result.paginate page: params[:page], per_page: Settings.mangas.page
       if params[:scope].present?
-        check_scope.search(name_cont: params[:search]).result.paginate page: params[:page], per_page: Settings.mangas.page
+        check_scope.search(name_cont: params[:search]).result
       end
     else
       if params[:scope].present?
