@@ -21,7 +21,7 @@ class VoteMangasController < ApplicationController
   private
 
   def find_manga
-    @manga = Manga.find_by id: params[:manga_id]
+    @manga = Manga.friendly.find params[:manga_id]
     redirect_to manga_path unless @manga
   end
 end

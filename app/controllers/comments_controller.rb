@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :find_comment, only: [:destroy]
+  before_action :find_manga, only: %i(create)
 
   def create
     if params[:comment][:parent_id].present?
@@ -34,6 +35,7 @@ class CommentsController < ApplicationController
   end
 
   private
+
   def comment_params
     params.require(:comment).permit :manga_id, :user_id, :content, :parent_id
   end
@@ -42,4 +44,10 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by id: params[:id]
     redirect_back(fallback_location: root_path) unless @comment
   end
+
+  def find_manga
+    @manga = Manga.find_by id: params[:comment][:manga_id]
+    return manga_path if @manga
+  end
+
 end

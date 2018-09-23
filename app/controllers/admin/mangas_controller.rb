@@ -55,7 +55,7 @@ class Admin::MangasController < Admin::AdminController
   end
 
   def find_manga
-    @manga = Manga.find_by id: params[:id]
+    @manga = Manga.friendly.find params[:id]
     redirect_to admin_mangas_path if @manga.nil?
   end
 end

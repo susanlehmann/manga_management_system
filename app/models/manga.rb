@@ -22,7 +22,7 @@ class Manga < ApplicationRecord
   acts_as_paranoid
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: [:slugged, :finders]
 
   mount_uploader :thumbnail, ThumbnailUploader
   mount_uploader :poster, ThumbnailUploader
@@ -44,6 +44,6 @@ class Manga < ApplicationRecord
   end
 
   def should_generate_new_friendly_id?
-    slug.blank? || name_changed?
+    name_changed? || super
   end
 end

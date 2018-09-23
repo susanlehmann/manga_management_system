@@ -26,6 +26,6 @@
 </div>
 <div class="row">
   <div class="col-md-offset-1" id="reply-comment-<%= comment.id %>">
-    <%= render "comments/comment_form", manga: manga, parent_id: comment.id, comment_new: Comment.new %>
+    <%= render "comments/comment_form", manga: @manga, parent_id: comment.id, comment_new: Comment.new %>
   </div>
 </div>
