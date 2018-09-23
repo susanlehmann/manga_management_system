@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.4.4"
+ruby "2.4.1"
 
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", ">= 1.1.0", require: false
@@ -44,12 +44,18 @@ gem "social-share-button"
 gem "friendly_id", "~> 5.2.0", require: "friendly_id"
 gem "paranoia"
 gem "toastr-rails"
+gem "therubyracer", platforms: :ruby
 if Gem.win_platform?
   gem "wdm", ">= 0.1.0"
 end
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "dotenv-rails"
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
 end
 
 group :development do
@@ -58,7 +64,7 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
 end
-
+gem "puma", "~> 3.11"
 group :test do
   gem "capybara", ">= 2.15", "< 4.0"
   gem "selenium-webdriver"
