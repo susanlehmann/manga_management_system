@@ -8,8 +8,8 @@
       <%= link_to t("recent_add"), mangas_path(scope: :order_manga), class: "btn btn-primary" %>
       <%= link_to t("full"), mangas_path(scope: :finished), class: "btn btn-primary" %>
       <%= link_to t("continue"), mangas_path(scope: :not_finished), class: "btn btn-primary" %>
-      <%= link_to t("hot_week"), mangas_path(scope: :hot_manga_by_time), class: "btn btn-primary" %>
-      <%= link_to t("hot_month"), mangas_path(scope: :hot_manga_by_time), class: "btn btn-primary" %>
+      <%= link_to t("hot_week"), mangas_path(scope: :hot_manga_by_week), class: "btn btn-primary" %>
+      <%= link_to t("hot_month"), mangas_path(scope: :hot_manga_by_month), class: "btn btn-primary" %>
     </div>
     <%= render "manga" %>
   </div>
