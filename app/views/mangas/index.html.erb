@@ -8,7 +8,21 @@
       <%= link_to t("recent_add"), mangas_path(scope: :order_manga), class: "btn btn-primary" %>
       <%= link_to t("full"), mangas_path(scope: :finished), class: "btn btn-primary" %>
       <%= link_to t("continue"), mangas_path(scope: :not_finished), class: "btn btn-primary" %>
+      <%= link_to t("hot_week"), mangas_path(scope: :hot_manga_by_time), class: "btn btn-primary" %>
+      <%= link_to t("hot_month"), mangas_path(scope: :hot_manga_by_time), class: "btn btn-primary" %>
     </div>
     <%= render "manga" %>
   </div>
+</div>
+<div id="sideNav" class="sidenav">
+  <ul class="category-sb">
+    <li>
+      <p class="text-white bg-dark"><%= t"categories" %></a>
+    </li></br>
+    <li>
+      <% @categories.each do |category| %>
+        <%= link_to category.name, category_path(category) %>
+      <% end %>
+    </li>
+  </ul>
 </div>
