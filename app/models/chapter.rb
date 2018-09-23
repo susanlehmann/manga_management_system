@@ -1,7 +1,6 @@
 class Chapter < ApplicationRecord
   belongs_to :manga
   has_many :pages
-  acts_as_votable
   acts_as_paranoid
 
   mount_uploader :images, ThumbnailUploader
