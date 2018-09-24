@@ -51,6 +51,7 @@ vi:
   delete_account: "Xóa tài khoản"
   make_sure: "Bạn chắc chứ?"
   back: "Quay về"
+  social_success: "Đăng nhập qua mạng xã hội thành công"
   social_error: "Có vấn đề xảy ra khi đăng nhập qua mạng xã hội"
   signup: "Đăng ký"
   signin: "Đăng nhập"
@@ -73,6 +74,11 @@ vi:
   full: "Truyện full"
   continue: "Truyện tiếp diễn"
   follow: "Truyện đang theo dõi"
+  my_dashboard: "My Dashboard"
+  all_user: "Tất cả người dùng"
+  all_categories: "Tất cả thể loại"
+  all_mangas: "Tất cả truyện"
+  skill_chart: "Skill Chart"
   admin:
     categories:
       index:

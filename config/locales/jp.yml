@@ -52,6 +52,7 @@ jp:
   delete_account: "Delete my Account"
   make_sure: "Are you sure?"
   back: "Go back"
+  social_success: "Signing in through Social Network success"
   social_error: "There was a problem signing in through Social Network"
   signup: "Sign Up"
   signin: "Sign In"
@@ -74,6 +75,11 @@ jp:
   full: "Completed Mangas"
   continue: "Continued Mangas"
   follow: "Followings"
+  my_dashboard: "My Dashboard"
+  all_user: "All Users"
+  all_categories: "All Categories"
+  all_mangas: "All Mangas"
+  skill_chart: "Skill Chart"
   admin:
     categories:
       index:
