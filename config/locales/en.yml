@@ -44,6 +44,7 @@ en:
       logout: "Log Out"
       account: "Account"
       search: "Search manga..."
+      admin_panel: "Admin Panel"
     footer:
       coryright: "2018 Manga Anime. All rights reserved | Design by Killua"
   update: "Update"

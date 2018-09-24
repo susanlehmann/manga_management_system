@@ -44,6 +44,7 @@ vi:
       logout: "Đăng xuất"
       account: "Tài khoản"
       search: "Tìm truyện..."
+      admin_panel: "Trang Admin"
     footer:
         coryright: "2018 Manga Anime. All rights reserved | Design by Killua"
   update: "Cập nhật"

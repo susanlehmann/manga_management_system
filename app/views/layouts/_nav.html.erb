@@ -47,14 +47,14 @@
                     <ul class="multi-column-dropdown">
                       <li><%= link_to t("most_view"), mangas_path(scope: :most_view) %></li>
                       <li><%= link_to t("most_follow"), mangas_path(scope: :most_followed) %></li>
-                      <li><%= link_to t("hot_week"), mangas_path(scope: :hot_manga_by_time) %></li>
+                      <li><%= link_to t("hot_week"), mangas_path(scope: :hot_manga_by_week) %></li>
                     </ul>
                   </div>
                   <div class="col-sm-4">
                     <ul class="multi-column-dropdown">
                       <li><%= link_to t("top_rate"), mangas_path(scope: :top_rate) %></li>
                       <li><%= link_to t("recent_add"), mangas_path(scope: :order_manga) %></li>
-                      <li><%= link_to t("hot_month"), mangas_path(scope: :hot_manga_by_time) %></li>
+                      <li><%= link_to t("hot_month"), mangas_path(scope: :hot_manga_by_month) %></li>
                     </ul>
                   </div>
                   <div class="col-sm-4">
