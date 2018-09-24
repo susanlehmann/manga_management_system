@@ -16,7 +16,7 @@
           <div class="mr-5"><%= User.all.size %></div>
         </div>
           <a class="card-footer text-white clearfix small z-1" href="/en/admin/users">
-            <span class="float-left"><%= t("all_employee") %></span>
+            <span class="float-left"><%= t("all_user") %></span>
             <span class="float-right">
              <i class="fa fa-angle-right"></i>
             </span>
@@ -31,7 +31,7 @@
           </div>
           <div class="mr-5"><%= User.all.size %></div>
         </div>
-          <%= link_to admin_users_path,class: "card-footer text-white clearfix small z-1" do %><%= t("all_divisions") %>
+          <%= link_to admin_categories_path,class: "card-footer text-white clearfix small z-1" do %><%= t("all_categories") %>
             <span class="float-left"></span>
             <span class="float-right">
               <i class="fa fa-angle-right"></i>
@@ -47,28 +47,12 @@
           </div>
           <div class="mr-5"><%= User.all.size %></div>
         </div>
-          <%= link_to admin_users_path,class: "card-footer text-white clearfix small z-1" do %><%= t("all_positions") %>
+          <%= link_to admin_mangas_path,class: "card-footer text-white clearfix small z-1" do %><%= t("all_mangas") %>
             <span class="float-left"></span>
             <span class="float-right">
               <i class="fa fa-angle-right"></i>
             </span>
           <% end %>
-      </div>
-    </div>
-    <div class="col-xl-3 col-sm-6 mb-3">
-      <div class="card text-white bg-danger o-hidden h-100">
-        <div class="card-body">
-          <div class="card-body-icon">
-            <i class="fa fa-fw fa-support"></i>
-          </div>
-          <div class="mr-5"><%= User.all.size %></div>
-          <%= link_to admin_users_path,class: "card-footer text-white clearfix small z-1" do %><%= t("all_reports") %>
-            <span class="float-left"></span>
-            <span class="float-right">
-              <i class="fa fa-angle-right"></i>
-            </span>
-          <% end %>
-        </div>
       </div>
     </div>
     <div class="card">
