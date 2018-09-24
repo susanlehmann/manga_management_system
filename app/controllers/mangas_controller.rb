@@ -56,9 +56,9 @@ class MangasController < ApplicationController
     when Settings.mangas.most_followed
       Manga.most_followed.paginate page: params[:page], per_page: Settings.mangas.page
     when Settings.mangas.by_week
-      Manga.hot_manga_by_time(1.week.ago).paginate page: params[:page], per_page: Settings.mangas.page
+      Manga.hot_manga_by_time(Settings.mangas.time_limit.days).paginate page: params[:page], per_page: Settings.mangas.page
     when Settings.mangas.by_month
-      Manga.hot_manga_by_time(1.month.ago).paginate page: params[:page], per_page: Settings.mangas.page
+      Manga.hot_manga_by_time(1.month).paginate page: params[:page], per_page: Settings.mangas.page
     else
       Manga.order_manga.paginate page: params[:page], per_page: Settings.mangas.page
     end

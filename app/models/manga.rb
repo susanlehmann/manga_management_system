@@ -18,7 +18,7 @@ class Manga < ApplicationRecord
   scope :top_rate, -> {includes(:rate_average_without_dimension).order("rating_caches.avg desc")}
   scope :most_followed, -> {joins(:followers).group("mangas.id").order("count(*) desc")}
   scope :not_finished, -> {where status: 0}
-  scope :hot_manga_by_time, -> (time){where("created_at < ? AND number_of_read > ?", Time.now - time, Settings.mangas.view_limit)}
+  scope :hot_manga_by_time, -> (time){where("created_at > ? AND number_of_read > ?", Time.now - time, Settings.mangas.view_limit)}
   ratyrate_rateable "rate_manga", "rate_chapter"
   acts_as_votable
   acts_as_paranoid
@@ -50,7 +50,7 @@ class Manga < ApplicationRecord
   end
 
   def check_manga?
-    if created_at < Time.now - 1.week.ago
+    if created_at > Time.now - Settings.mangas.time_limit.days
       "new"
     elsif number_of_read > Settings.mangas.view_limit
       "hot"

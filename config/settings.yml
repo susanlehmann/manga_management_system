@@ -17,6 +17,7 @@ mangas:
   by_week: "hot_manga_by_week"
   by_month: "hot_manga_by_month"
   view_limit: 100
+  time_limit: 7
 chapters:
   page: 5
 animes:
